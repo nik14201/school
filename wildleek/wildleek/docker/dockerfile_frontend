@@ -1,0 +1,15 @@
+FROM debian:9.11
+
+RUN apt-get update
+#RUN apt-get install net-tools -y
+RUN apt-get install build-essential libssl-dev -y
+RUN apt-get install wget -y
+
+RUN wget https://nodejs.org/dist/v10.15.0/node-v10.15.0-linux-x64.tar.xz
+RUN tar -C /usr/local --strip-components 1 -xvJf node-v10.15.0-linux-x64.tar.xz
+
+RUN ls -l /usr/local/bin/node
+RUN ls -l /usr/local/bin/npm
+
+RUN mkdir -p /app/www/
+WORKDIR /app/www/

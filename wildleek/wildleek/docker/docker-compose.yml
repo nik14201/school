@@ -1,0 +1,110 @@
+version: '3.3'
+services:
+
+  postgres:
+    image: postgres
+    container_name: ${NAME_APP}_postgres
+    environment:
+      POSTGRES_USER: ${NAME_APP}
+      POSTGRES_PASSWORD: ${NAME_APP}123!@#
+      POSTGRES_DB: ${NAME_APP}
+    volumes:
+      - ../../database/data:/var/lib/postgresql/data
+    restart: always
+    networks:
+      net_apps:
+        ipv4_address: ${NETWORK_IP}.15
+
+  django:
+    depends_on:
+      - postgres
+    container_name: ${NAME_APP}_django
+    image: ${NAME_APP}_django:latest
+    command: python3 manage.py runserver 0.0.0.0:8080
+    volumes:
+      - ../backend:/code/${NAME_APP}/backend
+      - ../../statics:/code/statics
+      - ../../media:/code/media
+    working_dir: /code/${NAME_APP}/backend/django/www
+    networks:
+      net_apps:
+        ipv4_address: ${NETWORK_IP}.10
+    restart: always
+
+  celery:
+    container_name: ${NAME_APP}_celery
+    image: ${NAME_APP}_django:latest
+    command: /bin/bash -c "celery -A etc worker -B"
+    volumes:
+      - ../backend:/code/${NAME_APP}/backend
+      - ../../statics:/code/statics
+      - ../../media:/code/media
+    working_dir: /code/${NAME_APP}/backend/django/www
+    networks:
+      net_apps:
+        ipv4_address: ${NETWORK_IP}.11
+    restart: always
+
+  pgadmin:
+    container_name: ${NAME_APP}_pgadmin
+    image: dpage/pgadmin4
+    depends_on:
+      - postgres
+    ports:
+      - "5556:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin
+      PGADMIN_DEFAULT_PASSWORD: admin111123!@#
+    restart: always
+    networks:
+      net_apps:
+        ipv4_address: ${NETWORK_IP}.12
+
+  nuxt:
+    container_name: ${NAME_APP}_nuxt
+    image: ${NAME_APP}_frontend
+    command: bash -c "npm run dev"
+    volumes:
+      - ../frontend/nuxt/www:/app/www
+    ports:
+      - "3000"
+    networks:
+      net_apps:
+        ipv4_address: ${NETWORK_IP}.20
+    restart: always
+
+  rabbitmq:
+    container_name: ${NAME_APP}_rabbitmq
+    image: 'bitnami/rabbitmq:latest'
+    environment:
+      - RABBITMQ_PASSWORD=${NAME_APP}qweasd123456
+      - RABBITMQ_USERNAME=${NAME_APP}
+      - RABBITMQ_VHOST=${NAME_APP}
+      - RABBITMQ_NODE_PORT_NUMBER=5672
+      - RABBITMQ_MANAGER_PORT_NUMBER=15672
+    networks:
+      net_apps:
+        ipv4_address: ${NETWORK_IP}.16
+    restart: always
+
+  telegram_bot:
+    depends_on:
+      - postgres
+    container_name: ${NAME_APP}_bot
+    image: ${NAME_APP}_django:latest
+    command: python3 bot.py
+    volumes:
+      - ../backend:/backend
+    working_dir: /code/${NAME_APP}/backend/${NAME_APP}_bot
+    networks:
+      net_apps:
+        ipv4_address: ${NETWORK_IP}.17
+    restart: always
+
+networks:
+  net_apps:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      - subnet: ${NETWORK_IP}.0/16
