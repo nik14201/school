@@ -7,7 +7,22 @@ RUN mkdir -p /code/statics
 RUN mkdir -p /code/media
 
 RUN pip install --upgrade pip
-RUN pip3 install django scrapy scrapy-djangoitem django-filter django-select2 django-select2-forms Pillow 
-RUN pip3 install django-easy-select2 requests gunicorn django-redis djangorestframework markdown django-filter
-RUN pip3 install psycopg2-binary celery  django-celery-results django_celery_beat
-RUN pip3 install pytelegrambotapi
+RUN pip3 install django \
+	scrapy \
+	scrapy-djangoitem \
+	django-filter \
+	django-select2 \
+	django-select2-forms \
+	Pillow \
+	django-easy-select2 \
+	requests \
+	gunicorn \
+	django-redis \
+	djangorestframework \
+	markdown \
+	django-filter\
+	psycopg2-binary \
+	celery  \
+	django-celery-results \
+	django_celery_beat \
+	pytelegrambotapi
