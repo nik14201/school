@@ -1,7 +1,7 @@
 server {
 server_name wildleek.local;
 
-root /var/www/wildleek/wildleek/wildleek/frontend/nuxt/www/dist;
+root /var/www/wildleek/opt/www/frontend/nuxt/www/dist;
 index index.html index.htm index.nginx-debian.html;
 
   listen       80;
@@ -50,7 +50,7 @@ large_client_header_buffers 2 12M;
 
 
  location /statics/ {
-  root  /var/www/wildleek/wildleek;
+  root  /var/www/wildleek/opt;
    add_header X-Content-Type-Options nosniff;
     add_header X-XSS-Protection "1; mode=block";
   # Включаем кэширование и тщательно выбираем ключ кэша.
@@ -75,7 +75,7 @@ large_client_header_buffers 2 12M;
 }
 
  location /media/ {
-  root  /var/www/wildleek/wildleek;
+  root  /var/www/wildleek/opt;
    add_header X-Content-Type-Options nosniff;
     add_header X-XSS-Protection "1; mode=block";
   # Включаем кэширование и тщательно выбираем ключ кэша.
@@ -100,7 +100,7 @@ large_client_header_buffers 2 12M;
 }
 
 location /robot.txt {
-  root /var/www/wildleek/wildleek/wildleek/robot/;
+  root /var/www/wildleek/opt/www/robot/;
   index robot.txt;
 }
 
