@@ -1,6 +1,6 @@
 from django.db import models
 import datetime
-
+import uuid
 list_display = ['id', 'name', 'code']
 verbose_name = "Город"
 verbose_name_plural = "Города"
@@ -8,10 +8,11 @@ db_table = 'city'
 app_label = 'city'
 
 
-class ModelsModel(models.Model):
+class MainModel(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     _country = models.ForeignKey(
         'country.ModelsModel',
-        on_delete=models.CASCADE,
+        on_delete=models.SET_NULL,
         verbose_name="Страна",
         null=True,
         blank=True

@@ -1,12 +1,12 @@
 from rest_framework import  serializers, viewsets
-from .models import  ModelsModel as ObjectModel
+from .models import  MainModel
 from rest_framework.response import Response
 
-class ObjectModelSerializer(serializers.ModelSerializer):
+class MainSerializer(serializers.ModelSerializer):
     class Meta:
-        model = ObjectModel 
+        model = MainModel
         fields = '__all__'
 
-class ObjectModelViewSet(viewsets.ModelViewSet):
-    queryset = ObjectModel.objects.order_by('-id')
-    serializer_class = ObjectModelSerializer
+class MainViewSet(viewsets.ModelViewSet):
+    queryset = MainModel.objects.order_by('-id')[:1]
+    serializer_class = MainSerializer

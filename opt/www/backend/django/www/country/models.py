@@ -1,13 +1,14 @@
 from django.db import models
 import datetime
-
+import uuid
 list_display = ['id', 'name_ru', 'name_en']
 verbose_name = "Страна"
 verbose_name_plural = "Страны"
 db_table = 'country'
 app_label = 'country'
 
-class ModelsModel(models.Model):
+class MainModel(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     _name = models.CharField(
         verbose_name = "Страна",
         max_length = 512,
