@@ -1,0 +1,33 @@
+{
+  "name": "school",
+  "version": "1.0.0",
+  "description": "My tiptop Nuxt.js project",
+  "author": "",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt --hostname 0.0.0.0 --port 3000",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@nuxt/webpack": "^2.11.0",
+    "@nuxtjs/axios": "^5.9.3",
+    "@nuxtjs/yandex-metrika": "^1.0.3",
+    "bootstrap-vue": "^2.1.0",
+    "nuxt": "^2.11.0",
+    "nuxt-edge": "latest",
+    "nuxt-sass-resources-loader": "^2.0.5",
+    "scss": "^0.2.4",
+    "vue-yandex-metrika": "^1.8.3"
+  },
+  "devDependencies": {
+    "coffee-loader": "^0.9.0",
+    "coffeescript": "^2.4.1",
+    "node-sass": "^4.13.0",
+    "pug": "^2.0.3",
+    "pug-plain-loader": "^1.0.0",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.0.0"
+  }
+}

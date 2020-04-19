@@ -1,0 +1,10 @@
+<div class="row youtube" v-model="getInfos">
+
+		<div class="rolik col-lg-12"  v-for="item in info" :key="item.id">
+			<h2 class="title_youtube">{{item.title}}</h2>
+			<iframe :width="item.width" :height="item.height" :src="item.youtube_src" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		</div>
+		
+
+
+</div>
