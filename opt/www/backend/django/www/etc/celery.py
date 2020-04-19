@@ -6,4 +6,3 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'etc.settings')
 app = Celery('etc')
 app.config_from_object('django.conf:settings')
 
-import  weather.tasks

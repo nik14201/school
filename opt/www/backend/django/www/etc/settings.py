@@ -10,11 +10,16 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
-import os
+import os, sys
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, './users/')
 
+try:
+    from .settings_local import *
+except:
+    pass
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
@@ -37,9 +42,20 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+
     'rest_framework',
     'rest_framework.authtoken',
-    'weather',
+
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'rest_auth',
+    'rest_auth.registration',
+
+    'teacher',
+    'student',
+    'parent',
 ]
 
 MIDDLEWARE = [
@@ -70,6 +86,7 @@ TEMPLATES = [
     },
 ]
 
+
 WSGI_APPLICATION = 'etc.wsgi.application'
 
 
@@ -79,14 +96,18 @@ WSGI_APPLICATION = 'etc.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'wildleek',
-        'USER' : 'wildleek',
-        'PASSWORD': 'wildleek123!@#',
-        'HOST' : '172.22.0.15',
+        'NAME': 'school',
+        'USER' : 'school',
+        'PASSWORD': 'school123!@#',
+        'HOST' : '172.25.0.15',
         'PORT' : '5432',
     }
 }
 
+
+AUTHENTICATION_BACKENDS = [
+ "allauth.account.auth_backends.AuthenticationBackend",
+]
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
@@ -143,10 +164,3 @@ CACHES = {
 }
 
 BROKER_URL = 'amqp://wildleek:weldleekqweasd123456@172.22.0.16:5672/wildleek'
-
-
-
-try:
-    from .settings_local import *
-except:
-    pass

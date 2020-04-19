@@ -25,4 +25,9 @@ RUN pip3 install django \
 	celery  \
 	django-celery-results \
 	django_celery_beat \
-	pytelegrambotapi
+	pytelegrambotapi \
+    django-rest-passwordreset \
+    django-rest-swagger \
+    django-allauth \
+    django-rest-auth \
+    django-password-reset

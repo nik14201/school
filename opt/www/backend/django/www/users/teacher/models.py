@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.models import AbstractUser
 
 
-class User(AbstractUser):
+class Teacher(AbstractUser):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     avatar = models.ImageField(
         upload_to='avatar/%Y/%m/%d',
@@ -91,5 +91,19 @@ class User(AbstractUser):
         blank=True)
 
     class Meta:
+        default_related_name = 'user_teacher'
+        default_permissions =('add', 'change', 'delete')
         verbose_name = "Профиль"
         verbose_name_plural = "Профиль"
+        permissions = [('can_deliver_pizzas', 'Can deliver pizzas')]
+
+
+# from django.contrib.auth.models import Permission
+# from django.contrib.contenttypes.models import ContentType
+#
+# content_type = ContentType.objects.get_for_model(Teacher)
+# permission = Permission.objects.create(
+#     codename='can_publish',
+#     name='Can Publish Posts',
+#     content_type=content_type,
+# )

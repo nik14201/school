@@ -1,2 +1,2 @@
 #!/bin/bash
-docker exec -it wildleek_django python3 manage.py createsuperuser
+docker exec -it school_django python3 manage.py createsuperuser

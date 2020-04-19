@@ -5,12 +5,13 @@ from django.contrib.auth.models import User
 from django.contrib.auth.models import AbstractUser
 
 
-class User(AbstractUser):
+class Parent(AbstractUser):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     student = models.ForeignKey(
-        'student.User',
+        'student.Student',
+        related_name="student_",
         on_delete=models.SET_NULL,
-        verbose_name="Student",
+        verbose_name="student",
         null=True,
         blank=True)
     avatar = models.ImageField(
@@ -96,6 +97,22 @@ class User(AbstractUser):
         null=True,
         blank=True)
 
+    def __str__(self):
+        return self.email
+
     class Meta:
+        default_related_name = 'user_parent'
+        default_permissions = ('add', 'change', 'delete')
         verbose_name = "Профиль"
         verbose_name_plural = "Профиль"
+        permissions = [('can_deliver_pizzas', 'Can deliver pizzas')]
+
+# from django.contrib.auth.models import Permission
+# from django.contrib.contenttypes.models import ContentType
+#
+# content_type = ContentType.objects.get_for_model(Parent)
+# permission = Permission.objects.create(
+#     codename='can_publish',
+#     name='Can Publish Posts',
+#     content_type=content_type,
+# )

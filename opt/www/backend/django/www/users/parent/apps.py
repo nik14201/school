@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 class ModelsConfig(AppConfig):
-    name = "parents"
+    name = "parent"
     verbose_name = 'Родители'

@@ -1,7 +1,7 @@
 version: '3.3'
 services:
 
-  postgres:
+  postgres_school:
     image: postgres
     container_name: ${NAME_APP}_postgres
     environment:
@@ -12,13 +12,53 @@ services:
       - ../../database/data:/var/lib/postgresql/data
     restart: always
     networks:
-      net_apps:
+      net_school:
         ipv4_address: ${NETWORK_IP}.15
 
-  django:
-    depends_on:
-      - postgres
-    container_name: ${NAME_APP}_django
+  django_teacher:
+    container_name: ${NAME_APP}_teacher
+    image: ${NAME_APP}_django:latest
+    command: python3 manage_teacher.py runserver 0.0.0.0:8080
+    volumes:
+      - ../backend:/code/${NAME_APP}/backend
+      - ../../statics:/code/statics
+      - ../../media:/code/media
+    working_dir: /code/${NAME_APP}/backend/django/www
+    networks:
+      net_school:
+        ipv4_address: ${NETWORK_IP}.5
+    restart: always
+
+  django_student:
+    container_name: ${NAME_APP}_student
+    image: ${NAME_APP}_django:latest
+    command: python3 manage_student.py runserver 0.0.0.0:8080
+    volumes:
+      - ../backend:/code/${NAME_APP}/backend
+      - ../../statics:/code/statics
+      - ../../media:/code/media
+    working_dir: /code/${NAME_APP}/backend/django/www
+    networks:
+      net_school:
+        ipv4_address: ${NETWORK_IP}.6
+    restart: always
+
+  django_parent:
+    container_name: ${NAME_APP}_parent
+    image: ${NAME_APP}_django:latest
+    command: python3 manage_parent.py runserver 0.0.0.0:8080
+    volumes:
+      - ../backend:/code/${NAME_APP}/backend
+      - ../../statics:/code/statics
+      - ../../media:/code/media
+    working_dir: /code/${NAME_APP}/backend/django/www
+    networks:
+      net_school:
+        ipv4_address: ${NETWORK_IP}.7
+    restart: always
+
+  django_admin:
+    container_name: ${NAME_APP}_admin
     image: ${NAME_APP}_django:latest
     command: python3 manage.py runserver 0.0.0.0:8080
     volumes:
@@ -27,29 +67,30 @@ services:
       - ../../media:/code/media
     working_dir: /code/${NAME_APP}/backend/django/www
     networks:
-      net_apps:
-        ipv4_address: ${NETWORK_IP}.10
+      net_school:
+        ipv4_address: ${NETWORK_IP}.8
     restart: always
+#  celery_school:
+#    depends_on:
+#      - postgres_school
+#    container_name: ${NAME_APP}_celery
+#    image: ${NAME_APP}_django:latest
+#    command: /bin/bash -c "celery -A etc worker -B"
+#    volumes:
+#      - ../backend:/code/${NAME_APP}/backend
+#      - ../../statics:/code/statics
+#      - ../../media:/code/media
+#    working_dir: /code/${NAME_APP}/backend/django/www
+#    networks:
+#      net_school:
+#        ipv4_address: ${NETWORK_IP}.11
+#    restart: always
 
-  celery:
-    container_name: ${NAME_APP}_celery
-    image: ${NAME_APP}_django:latest
-    command: /bin/bash -c "celery -A etc worker -B"
-    volumes:
-      - ../backend:/code/${NAME_APP}/backend
-      - ../../statics:/code/statics
-      - ../../media:/code/media
-    working_dir: /code/${NAME_APP}/backend/django/www
-    networks:
-      net_apps:
-        ipv4_address: ${NETWORK_IP}.11
-    restart: always
-
-  pgadmin:
+  pgadmin_school:
+    depends_on:
+      - postgres_school
     container_name: ${NAME_APP}_pgadmin
     image: dpage/pgadmin4
-    depends_on:
-      - postgres
     ports:
       - "5556:80"
     environment:
@@ -57,52 +98,54 @@ services:
       PGADMIN_DEFAULT_PASSWORD: admin111123!@#
     restart: always
     networks:
-      net_apps:
+      net_school:
         ipv4_address: ${NETWORK_IP}.12
 
-  nuxt:
-    container_name: ${NAME_APP}_nuxt
-    image: ${NAME_APP}_frontend
-    command: bash -c "npm run dev"
-    volumes:
-      - ../frontend/nuxt/www:/app/www
-    ports:
-      - "3000"
-    networks:
-      net_apps:
-        ipv4_address: ${NETWORK_IP}.20
-    restart: always
+#  nuxt_school:
+#    depends_on:
+#      - postgres_school
+#    container_name: ${NAME_APP}_nuxt
+#    image: ${NAME_APP}_frontend
+#    command: bash -c "npm run dev"
+#    volumes:
+#      - ../frontend/nuxt/www:/app/www
+#    ports:
+#      - "3000"
+#    networks:
+#      net_school:
+#        ipv4_address: ${NETWORK_IP}.20
+#    restart: always
 
-  rabbitmq:
-    container_name: ${NAME_APP}_rabbitmq
-    image: 'bitnami/rabbitmq:latest'
-    environment:
-      - RABBITMQ_PASSWORD=${NAME_APP}qweasd123456
-      - RABBITMQ_USERNAME=${NAME_APP}
-      - RABBITMQ_VHOST=${NAME_APP}
-      - RABBITMQ_NODE_PORT_NUMBER=5672
-      - RABBITMQ_MANAGER_PORT_NUMBER=15672
-    networks:
-      net_apps:
-        ipv4_address: ${NETWORK_IP}.16
-    restart: always
+#  rabbitmq_school:
+#    container_name: ${NAME_APP}_rabbitmq
+#    image: 'bitnami/rabbitmq:latest'
+#    environment:
+#      - RABBITMQ_PASSWORD=${NAME_APP}qweasd123456
+#      - RABBITMQ_USERNAME=${NAME_APP}
+#      - RABBITMQ_VHOST=${NAME_APP}
+#      - RABBITMQ_NODE_PORT_NUMBER=5672
+#      - RABBITMQ_MANAGER_PORT_NUMBER=15672
+#    networks:
+#      net_school:
+#        ipv4_address: ${NETWORK_IP}.16
+#    restart: always
 
-  telegram_bot:
-    depends_on:
-      - postgres
-    container_name: ${NAME_APP}_bot
-    image: ${NAME_APP}_django:latest
-    command: python3 bot.py
-    volumes:
-      - ../backend:/backend
-    working_dir: /code/${NAME_APP}/backend/${NAME_APP}_bot
-    networks:
-      net_apps:
-        ipv4_address: ${NETWORK_IP}.17
-    restart: always
+#  tbot_school:
+#    depends_on:
+#      - postgres_school
+#    container_name: ${NAME_APP}_bot
+#    image: ${NAME_APP}_django:latest
+#    command: python3 bot.py
+#    volumes:
+#      - ../backend:/backend
+#    working_dir: /code/${NAME_APP}/backend/${NAME_APP}_bot
+#    networks:
+#      net_school:
+#        ipv4_address: ${NETWORK_IP}.17
+#    restart: always
 
 networks:
-  net_apps:
+  net_school:
     driver: bridge
     ipam:
       driver: default

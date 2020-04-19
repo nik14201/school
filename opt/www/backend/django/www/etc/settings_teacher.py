@@ -1,3 +1,4 @@
-from etc.settings import *
+from .settings import *
 
-SITE_ID = 1
+SITE_ID = 2
+AUTH_USER_MODEL = 'teacher.Teacher'
