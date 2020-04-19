@@ -1,12 +1,32 @@
 from django.db import models
 import datetime
 import uuid
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Permission, Group
 from django.contrib.auth.models import AbstractUser
+from django.utils.translation import gettext_lazy as _
 
 
 class Teacher(AbstractUser):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    groups = models.ManyToManyField(
+        Group,
+        verbose_name=_('groups'),
+        blank=True,
+        help_text=_(
+            'The groups this user belongs to. A user will get all permissions '
+            'granted to each of their groups.'
+        ),
+        related_name="teacher_set",
+        related_query_name="teacher",
+    )
+    user_permissions = models.ManyToManyField(
+        Permission,
+        verbose_name=_('student permissions'),
+        blank=True,
+        help_text=_('Specific permissions for this user.'),
+        related_name="teacher_set",
+        related_query_name="teacher",
+    )
     avatar = models.ImageField(
         upload_to='avatar/%Y/%m/%d',
         verbose_name = "Аватар",
@@ -18,7 +38,7 @@ class Teacher(AbstractUser):
         verbose_name = "Email",
         max_length = 256,
         null=True,
-        blank=True
+        blank=True,
         )
     first_name = models.CharField(
         verbose_name = "Имя",
@@ -89,6 +109,8 @@ class Teacher(AbstractUser):
         max_length = 256,
         null=True,
         blank=True)
+
+
 
     class Meta:
         default_related_name = 'user_teacher'

@@ -1,17 +1,39 @@
 from django.db import models
 import datetime
 import uuid
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Permission, Group
 from django.contrib.auth.models import AbstractUser
+from django.utils.translation import gettext_lazy as _
 
 
 class Parent(AbstractUser):
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = []
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    groups = models.ManyToManyField(
+        Group,
+        verbose_name=_('groups'),
+        blank=True,
+        help_text=_(
+            'The groups this user belongs to. A user will get all permissions '
+            'granted to each of their groups.'
+        ),
+        related_name="parent_set",
+        related_query_name="parent",
+    )
+    user_permissions = models.ManyToManyField(
+        Permission,
+        verbose_name=_('parent permissions'),
+        blank=True,
+        help_text=_('Specific permissions for this user.'),
+        related_name="parent_set",
+        related_query_name="parent",
+    )
     student = models.ForeignKey(
         'student.Student',
-        related_name="student_",
+        related_name="student",
         on_delete=models.SET_NULL,
-        verbose_name="student",
+        verbose_name="parent_student",
         null=True,
         blank=True)
     avatar = models.ImageField(
