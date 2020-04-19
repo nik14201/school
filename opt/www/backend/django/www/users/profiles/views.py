@@ -4,7 +4,6 @@ from .serializers import *
 
 from django.contrib.auth import authenticate
 from rest_framework import serializers
-from .models import User
 from rest_auth.registration.views import RegisterView
 from django.conf import settings
 from rest_auth.utils import jwt_encode
@@ -14,7 +13,8 @@ from allauth.account import app_settings as allauth_settings
 from rest_auth.views import UserDetailsView, LoginView, LogoutView
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
-
+from django.contrib.auth import get_user_model
+User = get_user_model()
 
 class APIRootView(APIView):
     def get(self, request):
@@ -120,7 +120,7 @@ class UserLogoutViewSet(LogoutView):
 
 
 class ObjectModelViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.filter(username='admin')
+    queryset = User.objects.all()
     serializer_class = ObjectModelSerializer
 
     def create(self, request, *args, **kwargs):

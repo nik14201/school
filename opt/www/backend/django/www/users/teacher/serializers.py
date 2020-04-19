@@ -2,7 +2,8 @@ from rest_framework import  serializers, viewsets
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework import serializers
-from .models import User
+from django.contrib.auth import get_user_model
+User = get_user_model()
 
 class RegisterUserSerializer(serializers.HyperlinkedModelSerializer):
     password = serializers.CharField(write_only=True)

@@ -4,7 +4,8 @@ import uuid
 from django.contrib.auth.models import User, Permission, Group
 from django.contrib.auth.models import AbstractUser
 from django.utils.translation import gettext_lazy as _
-
+from django.contrib.sites.models import Site
+from django.contrib.sites.managers import CurrentSiteManager
 
 class Teacher(AbstractUser):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
@@ -27,6 +28,15 @@ class Teacher(AbstractUser):
         related_name="teacher_set",
         related_query_name="teacher",
     )
+    # site = models.ForeignKey(
+    #     Site,
+    #     related_name="sites_teacher",
+    #     on_delete=models.SET_NULL,
+    #     null=True,
+    #     blank=True,
+    # )
+    # objects = models.Manager()
+    # on_site = CurrentSiteManager()
     avatar = models.ImageField(
         upload_to='avatar/%Y/%m/%d',
         verbose_name = "Аватар",
@@ -117,15 +127,6 @@ class Teacher(AbstractUser):
         default_permissions =('add', 'change', 'delete')
         verbose_name = "Профиль"
         verbose_name_plural = "Профиль"
-        permissions = [('can_deliver_pizzas', 'Can deliver pizzas')]
 
 
-# from django.contrib.auth.models import Permission
-# from django.contrib.contenttypes.models import ContentType
-#
-# content_type = ContentType.objects.get_for_model(Teacher)
-# permission = Permission.objects.create(
-#     codename='can_publish',
-#     name='Can Publish Posts',
-#     content_type=content_type,
-# )
+

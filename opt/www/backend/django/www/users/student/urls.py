@@ -7,12 +7,10 @@ router.register(r'', ObjectModelViewSet)
 
 urlpatterns = [
 	path('', APIRootView.as_view(), name='api-root'),
-    url(r'^auth/login/$', UserLoginViewSet.as_view(), name='rest_login'),
-    url(r'^auth/logout/$', UserLogoutViewSet.as_view(), name='rest_logout'),
-    url(r'^auth/registration/$', RegisterUserViewSet.as_view(), name='rest_register'),
-    url(r'^auth/user/$', UserDetailsViewSet.as_view(), name='rest_user_details'),
+    url(r'^login/$', UserLoginViewSet.as_view(), name='rest_login'),
+    url(r'^logout/$', UserLogoutViewSet.as_view(), name='rest_logout'),
+    url(r'^registration/$', RegisterUserViewSet.as_view(), name='rest_register'),
+    url(r'^user/$', UserDetailsViewSet.as_view(), name='rest_user_details'),
     url(r'^profile/', include(router.urls), name='profile'),
     path('auth/', include('rest_auth.urls')),
-    
-    
 ]

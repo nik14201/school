@@ -4,7 +4,8 @@ import uuid
 from django.contrib.auth.models import User, Permission, Group
 from django.contrib.auth.models import AbstractUser
 from django.utils.translation import gettext_lazy as _
-
+from django.contrib.sites.models import Site
+from django.contrib.sites.managers import CurrentSiteManager
 
 class Profile(AbstractUser):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
@@ -27,6 +28,15 @@ class Profile(AbstractUser):
         related_name="profile_set",
         related_query_name="profile",
     )
+    # site = models.ForeignKey(
+    #     Site,
+    #     related_name="sites_profiles",
+    #     on_delete=models.SET_NULL,
+    #     null=True,
+    #     blank=True
+    # )
+    # objects = models.Manager()
+    # on_site = CurrentSiteManager()
     avatar = models.ImageField(
         upload_to='avatar/%Y/%m/%d',
         verbose_name = "Аватар",
@@ -113,6 +123,8 @@ class Profile(AbstractUser):
 
 
     class Meta:
+        default_related_name = 'user_profile'
+        default_permissions =('add', 'change', 'delete')
         verbose_name = "Профиль"
         verbose_name_plural = "Профиль"
 

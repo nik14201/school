@@ -1,7 +1,8 @@
+from rest_framework import  viewsets
+from rest_framework import status
+from .serializers import *
 from rest_framework.reverse import reverse
 from rest_framework.views import APIView
-from .serializers import *
-
 from django.contrib.auth import authenticate
 from rest_framework import serializers
 from rest_auth.registration.views import RegisterView
