@@ -28,15 +28,6 @@ class Parent(AbstractUser):
         related_name="parent_set",
         related_query_name="parent",
     )
-    # site = models.ForeignKey(
-    #     Site,
-    #     related_name="sites_parent",
-    #     on_delete=models.SET_NULL,
-    #     null = True,
-    #     blank = True
-    # )
-    # objects = models.Manager()
-    # on_site = CurrentSiteManager()
     student = models.ForeignKey(
         'student.Student',
         related_name="student",

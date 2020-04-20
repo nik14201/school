@@ -28,15 +28,6 @@ class Student(AbstractUser):
         related_name="student_set",
         related_query_name="student",
     )
-    # site = models.ForeignKey(
-    #     Site,
-    #     related_name="sites_student",
-    #     on_delete=models.SET_NULL,
-    #     null=True,
-    #     blank=True
-    # )
-    # objects = models.Manager()
-    # on_site = CurrentSiteManager()
     avatar = models.ImageField(
         upload_to='avatar/%Y/%m/%d',
         verbose_name = "Аватар",

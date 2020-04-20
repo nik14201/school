@@ -28,15 +28,6 @@ class Teacher(AbstractUser):
         related_name="teacher_set",
         related_query_name="teacher",
     )
-    # site = models.ForeignKey(
-    #     Site,
-    #     related_name="sites_teacher",
-    #     on_delete=models.SET_NULL,
-    #     null=True,
-    #     blank=True,
-    # )
-    # objects = models.Manager()
-    # on_site = CurrentSiteManager()
     avatar = models.ImageField(
         upload_to='avatar/%Y/%m/%d',
         verbose_name = "Аватар",
