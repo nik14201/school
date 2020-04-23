@@ -17,6 +17,7 @@ from rest_framework.response import Response
 from django.contrib.auth import get_user_model
 User = get_user_model()
 
+
 class APIRootView(APIView):
     def get(self, request):
         context = {'request': ''}
@@ -39,14 +40,17 @@ class RegisterUserViewSet(RegisterView):
     queryset = User.objects.all()
 
     def perform_create(self, serializer):
-        user = serializer.save()
-        if getattr(settings, 'REST_USE_JWT', False):
-            self.token = jwt_encode(user)
-        else:
-            create_token(self.token_model, user, serializer)
-        complete_signup(self.request._request, user,
-                        allauth_settings.EMAIL_VERIFICATION,
-                        None)
+        try:
+            user = serializer.save()
+            if getattr(settings, 'REST_USE_JWT', False):
+                self.token = jwt_encode(user)
+            else:
+                create_token(self.token_model, user, serializer)
+            complete_signup(self.request._request, user,
+                            allauth_settings.EMAIL_VERIFICATION,
+                            None)
+        except Exception as e:
+            pass
         return user
 
 

@@ -111,7 +111,8 @@ class Teacher(AbstractUser):
         null=True,
         blank=True)
 
-
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = []
 
     class Meta:
         default_related_name = 'user_teacher'

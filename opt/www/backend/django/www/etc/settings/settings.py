@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
 
     'rest_framework',
-    'rest_framework.authtoken',
+
 
     'allauth',
     'allauth.account',
@@ -166,3 +166,4 @@ CACHES = {
 }
 
 BROKER_URL = 'amqp://wildleek:weldleekqweasd123456@172.22.0.16:5672/wildleek'
+AUTH_USER_EMAIL_UNIQUE = True

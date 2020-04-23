@@ -8,13 +8,17 @@ class RegisterUserSerializer(serializers.HyperlinkedModelSerializer):
         model = User
         fields = ['email', 'password']
 
-    # def create(self, validated_data):
-    #     user = super(RegisterUserSerializer, self).create(validated_data)
-    #     user.set_password(validated_data['password'])
-    #     user.is_staff = False
-    #     user.username=validated_data['email']
-    #     user.save()
-    #     return user
+    def create(self, validated_data):
+        email = validated_data['email'].lower()
+        if User.objects.filter(email=email).exists():
+            raise serializers.ValidationError({"registrations":["Пользователь уже существует!"]})
+        user = super(RegisterUserSerializer, self).create(validated_data)
+        user.set_password(validated_data['password'])
+        user.is_staff = False
+        user.username=validated_data['email'].lower()
+        user.email = validated_data['email'].lower()
+        user.save()
+        return user
 
 class UserDetailsSerializerGet(serializers.HyperlinkedModelSerializer):
     class Meta:

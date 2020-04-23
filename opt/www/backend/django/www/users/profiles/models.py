@@ -111,14 +111,14 @@ class Profile(AbstractUser):
         null=True,
         blank=True)
 
-
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['username']
 
     class Meta:
         default_related_name = 'user_profile'
         default_permissions =('add', 'change', 'delete')
         verbose_name = "Профиль"
         verbose_name_plural = "Профиль"
-
 
 
 # from django.contrib.auth.models import Permission

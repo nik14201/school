@@ -1,10 +1,11 @@
 from .settings import *
 
-SITE_ID = 1
 
+SITE_ID = 1
+INSTALLED_APPS += ['rest_framework.authtoken']
 AUTH_USER_MODEL='profiles.Profile'
 
-
+ACCOUNT_USER_MODEL_USERNAME_FIELD='email'
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
@@ -16,3 +17,4 @@ ACCOUNT_UNIQUE_EMAIL = True
 SITE_NAME = "school"
 SITE_DOMAIN = "admin.school.local"
 BASE_URL = 'https://school.local'
+

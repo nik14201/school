@@ -28,11 +28,11 @@ class Parent(AbstractUser):
         related_name="parent_set",
         related_query_name="parent",
     )
-    student = models.ForeignKey(
+    student = models.ManyToManyField(
         'student.Student',
         related_name="student",
-        on_delete=models.SET_NULL,
         verbose_name="parent_student",
+        through='ParentStudentMM',
         null=True,
         blank=True)
     avatar = models.ImageField(
@@ -118,6 +118,9 @@ class Parent(AbstractUser):
         null=True,
         blank=True)
 
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = []
+
     def __str__(self):
         return self.email
 
@@ -128,3 +131,17 @@ class Parent(AbstractUser):
         verbose_name_plural = "Профиль"
 
 
+class ParentStudentMM(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    parent = models.ForeignKey('parent.Parent',
+        related_name="parent_mm_student",
+        on_delete=models.SET_NULL,
+        verbose_name="parent_mm_student",
+        null=True,
+        blank=True)
+    student = models.ForeignKey('student.Student',
+        related_name="student_mm_parent",
+        on_delete=models.SET_NULL,
+        verbose_name="student_mm_parent",
+        null=True,
+        blank=True)
