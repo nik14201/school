@@ -1,8 +1,8 @@
 FROM python:3.7 
 ENV PYTHONUNBUFFERED 1
 
-RUN mkdir -p /code/wildleek/backend/django/www
-RUN mkdir -p /code/wildleek/backend/bot
+RUN mkdir -p /code/opt/backend/django/www
+RUN mkdir -p /code/opt/backend/bot
 RUN mkdir -p /code/statics
 RUN mkdir -p /code/media
 

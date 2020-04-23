@@ -20,10 +20,10 @@ services:
     image: ${NAME_APP}_django:latest
     command: python3 manage.py runserver --settings=etc.settings.teacher 0.0.0.0:8080
     volumes:
-      - ../backend:/code/${NAME_APP}/backend
+      - ../backend:/code/opt/backend
       - ../../statics:/code/statics
       - ../../media:/code/media
-    working_dir: /code/${NAME_APP}/backend/django/www
+    working_dir: /code/opt/backend/django/www
     networks:
       net_school:
         ipv4_address: ${NETWORK_IP}.5
@@ -34,10 +34,10 @@ services:
     image: ${NAME_APP}_django:latest
     command: python3 manage.py runserver --settings=etc.settings.student 0.0.0.0:8080
     volumes:
-      - ../backend:/code/${NAME_APP}/backend
+      - ../backend:/code/opt/backend
       - ../../statics:/code/statics
       - ../../media:/code/media
-    working_dir: /code/${NAME_APP}/backend/django/www
+    working_dir: /code/opt/backend/django/www
     networks:
       net_school:
         ipv4_address: ${NETWORK_IP}.6
@@ -48,10 +48,10 @@ services:
     image: ${NAME_APP}_django:latest
     command: python3 manage.py runserver --settings=etc.settings.parent 0.0.0.0:8080
     volumes:
-      - ../backend:/code/${NAME_APP}/backend
+      - ../backend:/code/opt/backend
       - ../../statics:/code/statics
       - ../../media:/code/media
-    working_dir: /code/${NAME_APP}/backend/django/www
+    working_dir: /code/opt/backend/django/www
     networks:
       net_school:
         ipv4_address: ${NETWORK_IP}.7
@@ -62,10 +62,10 @@ services:
     image: ${NAME_APP}_django:latest
     command: python3 manage.py runserver --settings=etc.settings.admin 0.0.0.0:8080
     volumes:
-      - ../backend:/code/${NAME_APP}/backend
+      - ../backend:/code/opt/backend
       - ../../statics:/code/statics
       - ../../media:/code/media
-    working_dir: /code/${NAME_APP}/backend/django/www
+    working_dir: /code/opt/backend/django/www
     networks:
       net_school:
         ipv4_address: ${NETWORK_IP}.8
@@ -77,10 +77,10 @@ services:
 #    image: ${NAME_APP}_django:latest
 #    command: /bin/bash -c "celery -A etc worker -B"
 #    volumes:
-#      - ../backend:/code/${NAME_APP}/backend
+#      - ../backend:/code/opt/backend
 #      - ../../statics:/code/statics
 #      - ../../media:/code/media
-#    working_dir: /code/${NAME_APP}/backend/django/www
+#    working_dir: /code/opt/backend/django/www
 #    networks:
 #      net_school:
 #        ipv4_address: ${NETWORK_IP}.11
