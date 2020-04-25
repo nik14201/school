@@ -117,8 +117,8 @@ class Profile(AbstractUser):
     class Meta:
         default_related_name = 'user_profile'
         default_permissions =('add', 'change', 'delete')
-        verbose_name = "Профиль"
-        verbose_name_plural = "Профиль"
+        verbose_name = "Администратор"
+        verbose_name_plural = "Администратор"
 
 
 # from django.contrib.auth.models import Permission

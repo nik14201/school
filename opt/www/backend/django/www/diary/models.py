@@ -2,18 +2,32 @@ from django.db import models
 import datetime
 import uuid
 list_display = ['id', 'name', 'code']
-verbose_name = "Город"
-verbose_name_plural = "Города"
-db_table = 'city'
-app_label = 'city'
+verbose_name = "Дневник"
+verbose_name_plural = "Дневник"
+db_table = 'diary'
+app_label = 'diary'
 
 
 class MainModel(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    _country = models.ForeignKey(
-        'country.ModelsModel',
+    _teacher = models.ForeignKey(
+        'teacher.Teacher',
         on_delete=models.SET_NULL,
-        verbose_name="Страна",
+        verbose_name="Учитель",
+        null=True,
+        blank=True
+    )
+    _student = models.ForeignKey(
+        'student.Student',
+        on_delete=models.SET_NULL,
+        verbose_name="Ученик",
+        null=True,
+        blank=True
+    )
+    _homework = models.ForeignKey(
+        'homework.MainModel',
+        on_delete=models.SET_NULL,
+        verbose_name="Домашнее задание",
         null=True,
         blank=True
     )
@@ -56,9 +70,18 @@ class MainModel(models.Model):
         self._code = value
 
     @property
-    def country(self):
-        return self._country
+    def student(self):
+        return self._student
 
-    @country.setter
-    def country(self, value):
-        self._country = value
+    @student.setter
+    def student(self, value):
+        self._student = value
+
+
+    @property
+    def homework(self):
+        return self._homework
+
+    @homework.setter
+    def homework(self, value):
+        self._homework = value

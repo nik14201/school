@@ -117,8 +117,8 @@ class Teacher(AbstractUser):
     class Meta:
         default_related_name = 'user_teacher'
         default_permissions =('add', 'change', 'delete')
-        verbose_name = "Профиль"
-        verbose_name_plural = "Профиль"
+        verbose_name = "Учитель"
+        verbose_name_plural = "Учитель"
 
 
 

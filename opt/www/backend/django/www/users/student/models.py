@@ -28,6 +28,13 @@ class Student(AbstractUser):
         related_name="student_set",
         related_query_name="student",
     )
+    _sclass = models.ForeignKey(
+        'sclass.MainModel',
+        on_delete=models.SET_NULL,
+        verbose_name="Класс",
+        null=True,
+        blank=True
+    )
     avatar = models.ImageField(
         upload_to='avatar/%Y/%m/%d',
         verbose_name = "Аватар",
@@ -117,7 +124,14 @@ class Student(AbstractUser):
     class Meta:
         default_related_name = 'user_student'
         default_permissions = ('add', 'change', 'delete')
-        verbose_name = "Профиль"
-        verbose_name_plural = "Профиль"
+        verbose_name = "Ученик"
+        verbose_name_plural = "Ученик"
 
 
+    @property
+    def sclass(self):
+        return self._sclass
+
+    @sclass.setter
+    def sclass(self, value):
+        self._sclass = value

@@ -11,7 +11,7 @@ app_label = 'city'
 class MainModel(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     _country = models.ForeignKey(
-        'country.ModelsModel',
+        'country.MainModel',
         on_delete=models.SET_NULL,
         verbose_name="Страна",
         null=True,

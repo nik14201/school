@@ -2,18 +2,18 @@ from django.db import models
 import datetime
 import uuid
 list_display = ['id', 'name', 'code']
-verbose_name = "Город"
-verbose_name_plural = "Города"
+verbose_name = "Домашнее задание"
+verbose_name_plural = "Домашнее задание"
 db_table = 'city'
 app_label = 'city'
 
 
 class MainModel(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    _country = models.ForeignKey(
-        'country.ModelsModel',
+    _lesson = models.ForeignKey(
+        'lesson.ModelsModel',
         on_delete=models.SET_NULL,
-        verbose_name="Страна",
+        verbose_name="Урок",
         null=True,
         blank=True
     )
@@ -56,9 +56,9 @@ class MainModel(models.Model):
         self._code = value
 
     @property
-    def country(self):
-        return self._country
+    def lesson(self):
+        return self._lesson
 
-    @country.setter
-    def country(self, value):
-        self._country = value
+    @lesson.setter
+    def lesson(self, value):
+        self._lesson = value

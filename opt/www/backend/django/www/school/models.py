@@ -2,18 +2,18 @@ from django.db import models
 import datetime
 import uuid
 list_display = ['id', 'name', 'code']
-verbose_name = "Город"
-verbose_name_plural = "Города"
-db_table = 'city'
-app_label = 'city'
+verbose_name = "Школа"
+verbose_name_plural = "Школа"
+db_table = 'school'
+app_label = 'school'
 
 
 class MainModel(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    _country = models.ForeignKey(
-        'country.ModelsModel',
+    _city = models.ForeignKey(
+        'city.MainModel',
         on_delete=models.SET_NULL,
-        verbose_name="Страна",
+        verbose_name="Город",
         null=True,
         blank=True
     )

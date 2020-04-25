@@ -17,6 +17,13 @@ class MainModel(models.Model):
         null=True,
         blank=True
     )
+    _sclass = models.ForeignKey(
+        'sclass.MainModel',
+        on_delete=models.SET_NULL,
+        verbose_name="Класс",
+        null=True,
+        blank=True
+    )
     _name = models.CharField(
         verbose_name="Name",
         max_length=512,
@@ -62,3 +69,11 @@ class MainModel(models.Model):
     @subject.setter
     def subject(self, value):
         self._subject = value
+
+    @property
+    def sclass(self):
+        return self._sclass
+
+    @sclass.setter
+    def sclass(self, value):
+        self._sclass = value
