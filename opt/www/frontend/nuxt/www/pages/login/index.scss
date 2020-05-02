@@ -1,6 +1,14 @@
 $width: 100 px;
 
-dev {
+div {
 	padding: $width;
-	background-color:green;
+	background-color:#fffcc8;
+}
+
+.form-control {
+	background-color:#fff;
+}
+
+.btn  {
+	margin-top: 10px; 
 }

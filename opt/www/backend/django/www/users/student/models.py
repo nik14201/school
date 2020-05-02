@@ -8,7 +8,7 @@ from django.contrib.sites.models import Site
 from django.contrib.sites.managers import CurrentSiteManager
 
 class Student(AbstractUser):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, unique=True)
     groups = models.ManyToManyField(
         Group,
         verbose_name=_('groups'),
@@ -45,8 +45,6 @@ class Student(AbstractUser):
         unique=True,
         verbose_name = "Email",
         max_length = 256,
-        null=True,
-        blank=True
         )
     first_name = models.CharField(
         verbose_name = "Имя",

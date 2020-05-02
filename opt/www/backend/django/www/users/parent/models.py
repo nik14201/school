@@ -9,7 +9,7 @@ from django.contrib.sites.managers import CurrentSiteManager
 
 
 class Parent(AbstractUser):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, unique=True)
     groups = models.ManyToManyField(
         Group,
         verbose_name=_('groups'),
@@ -34,16 +34,6 @@ class Parent(AbstractUser):
         related_name="student",
         verbose_name="parent_student",
         through='ParentStudentMM',
-        db_table='ParentStudentMM',
-        null=True,
-        blank=True
-    )
-    parent = models.ManyToManyField(
-        'parent.Parent',
-        related_name="parent_to_parent",
-        verbose_name="parent_to_parent",
-        through='ParentToParentMM',
-        db_table='ParentToParentMM',
         null=True,
         blank=True
     )
@@ -57,8 +47,6 @@ class Parent(AbstractUser):
         unique=True,
         verbose_name="Email",
         max_length=256,
-        null=True,
-        blank=True
     )
     first_name = models.CharField(
         verbose_name="Имя",
@@ -159,17 +147,3 @@ class ParentStudentMM(models.Model):
                                 blank=True)
 
 
-class ParentToParentMM(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    parent = models.ForeignKey('parent.Parent',
-                               related_name="parent_mm_student",
-                               on_delete=models.SET_NULL,
-                               verbose_name="parent_mm_student",
-                               null=True,
-                               blank=True)
-    student = models.ForeignKey('parent.Parent',
-                                related_name="student_mm_parent",
-                                on_delete=models.SET_NULL,
-                                verbose_name="student_mm_parent",
-                                null=True,
-                                blank=True)

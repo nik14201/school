@@ -1,1 +1,1 @@
-default_app_config = 'city.apps.ModelsConfig'
+default_app_config = 'lesson.apps.ModelsConfig'

@@ -21,7 +21,7 @@ export default {
       await this.$axios
         .$get('/api/v2/weather')
         .then(response => {
-          this.info = response[0];
+           this.info = response[0];
         });
     },
 

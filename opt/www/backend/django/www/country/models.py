@@ -1,7 +1,7 @@
 from django.db import models
 import datetime
 import uuid
-list_display = ['id', 'name_ru', 'name_en']
+list_display = ['id', 'name']
 verbose_name = "Страна"
 verbose_name_plural = "Страны"
 db_table = 'country'

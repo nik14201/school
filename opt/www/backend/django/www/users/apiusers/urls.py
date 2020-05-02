@@ -13,4 +13,5 @@ urlpatterns = [
     url(r'^user/$', UserDetailsViewSet.as_view(), name='rest_user_details'),
     url(r'^profile/', include(router.urls), name='profile'),
     path('auth/', include('rest_auth.urls')),
+    path('isauth/', IsAuthentificateView.as_view(), name='isauth'),
 ]

@@ -29,6 +29,7 @@ class APIRootView(APIView):
             'password-reset': reverse('rest_password_reset', request=request),
             'password-reset-confirm': reverse('rest_password_reset_confirm', request=request),
             'user-details': reverse('rest_user_details', request=request),
+            'isauth': reverse('isauth', request=request),
             #'profile': reverse('profile', request=request),
         }
         return Response(data)
@@ -93,8 +94,11 @@ class UserLoginViewSet(LoginView):
         if getattr(settings, 'REST_USE_JWT', False):
             self.token = jwt_encode(self.user)
         else:
-            self.token = create_token(self.token_model, self.user,
-                                      self.serializer)
+            try:
+                self.token = create_token(self.token_model, self.user,
+                                          self.serializer)
+            except Exception as e:
+                pass
 
         if getattr(settings, 'REST_SESSION_LOGIN', True):
             self.process_login()
@@ -134,3 +138,12 @@ class ObjectModelViewSet(viewsets.ModelViewSet):
         #self.perform_create(serializer)
         #headers = self.get_success_headers(serializer.data)
         return Response(status=status.HTTP_200_OK)
+
+
+class IsAuthentificateView(APIView):
+
+    def get(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            return Response({"authentificate": True})
+        else:
+            return Response({"authentificate": False})

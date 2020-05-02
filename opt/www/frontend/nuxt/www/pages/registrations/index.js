@@ -1,5 +1,5 @@
 import Hello from '~/components/hello/index.vue'
-
+import axios from 'axios';
 export default {
 
 
@@ -9,16 +9,18 @@ export default {
   name: 'app',
   data() {
     return
-      
+
   },
 
 
-data() {
+  data() {
     return {
       data: {
-         username: false,
-         email: false,
-         password: false,
+        urls: 'api/v1/auth/registration/',
+        username: false,
+        email: false,
+        password: false,
+        msg: '',
       },
     }
   },
@@ -33,13 +35,32 @@ data() {
   },
 
   methods: {
-    createUser(){
-      //alert("OK");
-       const data = {'email':this.email, 'password': this.password}
-       console.log(data);
-       const {response} = this.$axios.post('/api/v2/auth/users/', data)
+    async createUser() {
+      const data = { 'email': this.email, 'password': this.password }
+      try{
+      await this.$axios
+        .post(this.data.urls, data)
+        .then(response => {
+          if (response.status==201){
+            this.data.msg = "Успешно";
 
-    }
-   
+          setTimeout(() => {
+            //this.$nuxt.$router.replace({ path: '/'});
+            // или
+                //this.$router.replace({ path: '/' });
+                window.location.href = '/'
+              }, 1000)
+
+          }else{
+            this.data.msg = "Ошибка";
+          }
+
+        });
+      } catch (err) {
+      this.data.msg = "Ошибка";
+      }
+
+    },
+
   }
 }

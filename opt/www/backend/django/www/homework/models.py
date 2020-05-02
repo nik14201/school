@@ -4,14 +4,14 @@ import uuid
 list_display = ['id', 'name', 'code']
 verbose_name = "Домашнее задание"
 verbose_name_plural = "Домашнее задание"
-db_table = 'city'
-app_label = 'city'
+db_table = 'homework'
+app_label = 'homework'
 
 
 class MainModel(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     _lesson = models.ForeignKey(
-        'lesson.ModelsModel',
+        'lesson.MainModel',
         on_delete=models.SET_NULL,
         verbose_name="Урок",
         null=True,

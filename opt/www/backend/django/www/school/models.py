@@ -14,6 +14,7 @@ class MainModel(models.Model):
         'city.MainModel',
         on_delete=models.SET_NULL,
         verbose_name="Город",
+
         null=True,
         blank=True
     )

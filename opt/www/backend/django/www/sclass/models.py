@@ -15,13 +15,15 @@ class MainModel(models.Model):
         'school.MainModel',
         on_delete=models.SET_NULL,
         verbose_name="Школа",
+        related_name='sclass_school',
         null=True,
         blank=True
     )
     _letter = models.ForeignKey(
-        'school.ClassLetter',
+        'sclass.ClassLetter',
         on_delete=models.SET_NULL,
         verbose_name="Буква класса",
+        related_name='sclass_letter',
         null=True,
         blank=True
     )

@@ -11,7 +11,7 @@ app_label = 'subject'
 class MainModel(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     _school = models.ForeignKey(
-        'school.ModelsModel',
+        'school.MainModel',
         on_delete=models.SET_NULL,
         verbose_name="Страна",
         null=True,

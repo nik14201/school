@@ -19,7 +19,7 @@ export default {
 
     async getData() {
       await this.$axios
-        .$get('/api/v2/profile')
+        .$get('/api/v1/auth/profile/')
         .then(response => {
           this.data = response[0];
         });

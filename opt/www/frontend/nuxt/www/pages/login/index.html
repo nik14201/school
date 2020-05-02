@@ -1,6 +1,16 @@
-<dev>
-Hello index.html
-
-
-<Hello />
-</dev>
+<div>
+<div class="container">
+	<div class="row">
+		<div class="col-lg-6 justify-content-center">
+			<label for="email">Email address</label>
+			<input id="email" type="email" v-model="email" placeholder="email" class="form-control">
+			<label for="password">Password</label>
+			<input id="password" type="password" maxlength="25" v-model="password" placeholder="password" class="form-control">
+			<button v-on:click="loginUser" class="btn btn-primary">Войти</button>
+		</div>
+	</div>
+		<div class="row"  v-model="data.msg">
+			{{data.msg}}
+		</div>
+</div>
+</div>

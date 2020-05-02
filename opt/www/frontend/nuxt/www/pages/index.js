@@ -1,3 +1,4 @@
+import Auth from '~/components/authentificate/index.vue'
 import Weather from '~/components/weather/index.vue'
 import Profile from '~/components/profile/index.vue'
 import Youtube from '~/components/youtube/index.vue'
@@ -12,27 +13,31 @@ export default {
   ],
 },
   components: {
+    Auth,
     Weather,
     Profile,
     Youtube,
     Menus,
   },
   name: 'app',
-  data() {
-    
+ data() {
+    return {
+      data: {
+        status: 200,
+      },
+    }
   },
 
   created() {
-
   },
 
   mounted() {
-   this.ym(56657455, "init", {});
+   //this.ym(56657455, "init", {});
 
   },
 
   methods: {
 
-}
+    }
 }
 
