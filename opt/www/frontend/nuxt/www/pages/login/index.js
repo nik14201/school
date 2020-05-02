@@ -16,7 +16,7 @@ export default {
   data() {
     return {
       data: {
-        urls: 'api/v1/auth/auth/login/',
+        urls: '/api/v1/auth/login/',
         username: false,
         email: false,
         password: false,

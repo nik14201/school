@@ -25,9 +25,9 @@ class APIRootView(APIView):
             'login': reverse('rest_login', request=request),
             'logout': reverse('rest_logout', request=request),
             'register': reverse('rest_register', request=request),
-            'password-change': reverse('rest_password_change', request=request),
-            'password-reset': reverse('rest_password_reset', request=request),
-            'password-reset-confirm': reverse('rest_password_reset_confirm', request=request),
+            #'password-change': reverse('rest_password_change', request=request),
+            #'password-reset': reverse('rest_password_reset', request=request),
+            #'password-reset-confirm': reverse('rest_password_reset_confirm', request=request),
             'user-details': reverse('rest_user_details', request=request),
             'isauth': reverse('isauth', request=request),
             #'profile': reverse('profile', request=request),
@@ -90,7 +90,6 @@ class UserLoginViewSet(LoginView):
 
     def login(self):
         self.user = User.objects.get(email=self.serializer.validated_data['email'])
-
         if getattr(settings, 'REST_USE_JWT', False):
             self.token = jwt_encode(self.user)
         else:
@@ -98,8 +97,7 @@ class UserLoginViewSet(LoginView):
                 self.token = create_token(self.token_model, self.user,
                                           self.serializer)
             except Exception as e:
-                pass
-
+                self.token=None
         if getattr(settings, 'REST_SESSION_LOGIN', True):
             self.process_login()
 
@@ -109,8 +107,8 @@ class UserLoginViewSet(LoginView):
                                               context={'request': request})
         self.serializer.is_valid(raise_exception=True)
 
-        email = request.POST.get('email', None)
-        password = request.POST.get('password',None)
+        email = request.data.get('email', None)
+        password = request.data.get('password',None)
         user = authenticate(email=email, password=password)
         if user is None:
             raise serializers.ValidationError({
@@ -128,16 +126,14 @@ class UserLogoutViewSet(LogoutView):
     pass
 
 
-class ObjectModelViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
-    serializer_class = ObjectModelSerializer
+class ObjectModelViewSet(APIView):
 
-    def create(self, request, *args, **kwargs):
-        #serializer = self.get_serializer(data=request.data)
-        #serializer.is_valid(raise_exception=True)
-        #self.perform_create(serializer)
-        #headers = self.get_success_headers(serializer.data)
-        return Response(status=status.HTTP_200_OK)
+    def get(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            serializers = ObjectModelSerializer(request.user)
+            return Response(serializers.data)
+        else:
+            return Response({"authentificate": False})
 
 
 class IsAuthentificateView(APIView):

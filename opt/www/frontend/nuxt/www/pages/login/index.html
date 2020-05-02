@@ -1,16 +1,42 @@
 <div>
+
+
 <div class="container">
-	<div class="row">
-		<div class="col-lg-6 justify-content-center">
-			<label for="email">Email address</label>
-			<input id="email" type="email" v-model="email" placeholder="email" class="form-control">
-			<label for="password">Password</label>
-			<input id="password" type="password" maxlength="25" v-model="password" placeholder="password" class="form-control">
-			<button v-on:click="loginUser" class="btn btn-primary">Войти</button>
-		</div>
-	</div>
-		<div class="row"  v-model="data.msg">
-			{{data.msg}}
-		</div>
-</div>
+ <div class="row main-form">
+ <form class="" method="post" action="#">
+ 
+
+ <div class="form-group">
+ <label for="email" class="cols-sm-2 control-label">Your Email</label>
+ <div class="cols-sm-10">
+ <div class="input-group">
+ <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+ <input type="text" class="form-control" name="email" id="email" v-model="email" placeholder="Enter your Email"/>
+ </div>
+ </div>
+ </div>
+
+
+
+ <div class="form-group">
+ <label for="password" class="cols-sm-2 control-label">Password</label>
+ <div class="cols-sm-10">
+ <div class="input-group">
+ <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+ <input type="password" class="form-control" name="password" id="password" v-model="password" placeholder="Enter your Password"/>
+ </div>
+ </div>
+ </div>
+
+
+
+ <div class="form-group ">
+ <button v-on:click="loginUser" target="_blank" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button">Войти</button>
+ </div>
+ 
+ </form>
+ </div>
+ </div>
+
+
 </div>

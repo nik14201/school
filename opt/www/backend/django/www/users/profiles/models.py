@@ -110,7 +110,7 @@ class Profile(AbstractUser):
         blank=True)
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['username']
+    REQUIRED_FIELDS = []
 
     class Meta:
         default_related_name = 'user_profile'
@@ -119,12 +119,3 @@ class Profile(AbstractUser):
         verbose_name_plural = "Администратор"
 
 
-# from django.contrib.auth.models import Permission
-# from django.contrib.contenttypes.models import ContentType
-#
-# content_type = ContentType.objects.get_for_model(Teacher)
-# permission = Permission.objects.create(
-#     codename='can_publish',
-#     name='Can Publish Posts',
-#     content_type=content_type,
-# )

@@ -1,6 +1,5 @@
 import Auth from '~/components/authentificate/index.vue'
 import Weather from '~/components/weather/index.vue'
-import Profile from '~/components/profile/index.vue'
 import Youtube from '~/components/youtube/index.vue'
 import Menus from '~/components/menu/index.vue'
 export default {
@@ -15,7 +14,6 @@ export default {
   components: {
     Auth,
     Weather,
-    Profile,
     Youtube,
     Menus,
   },

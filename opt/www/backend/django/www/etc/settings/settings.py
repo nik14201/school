@@ -46,7 +46,6 @@ INSTALLED_APPS = [
 
     'rest_framework',
 
-
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -66,6 +65,8 @@ INSTALLED_APPS = [
     'school',
     'sclass',
     'subject',
+    'weather',
+    'youtube',
 
 ]
 
@@ -159,7 +160,7 @@ USE_TZ = False
 STATIC_ROOT = './../../../../statics/'
 MEDIA_ROOT ='./../../../../media/'
 STATIC_URL = '/statics/'
-MEDIA_URL = '/uploads/'
+MEDIA_URL = '/media/'
 
 
 
@@ -184,7 +185,8 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
     ],
     'DEFAULT_PERMISSION_CLASSES': [
-        #'rest_framework.permissions.IsAuthenticated',
-        'rest_framework.permissions.IsAdminUser',
+        'rest_framework.permissions.IsAuthenticated',
+        #'rest_framework.permissions.IsAdminUser',
     ]
 }
+

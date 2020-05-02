@@ -28,6 +28,16 @@ export default {
     //     });
     // },
 
+    async logoutUser() {
+      await this.$axios
+        .$post('/api/v1/auth/logout/')
+        .then(response => {
+          this.info = response;
+          document.cookie = "csrftoken=";
+        });
+    },
+
+
   }
 }
 

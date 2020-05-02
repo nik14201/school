@@ -17,8 +17,11 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls import include, url
 
-
 urlpatterns = [
-    path('api/v1/admin/', admin.site.urls),
+    path('api/v2/admin/', admin.site.urls),
     path('api/v1/auth/', include('apiusers.urls')),
+    path('api/v1/weather/', include('weather.urls')),
+    path('api/v1/youtube/', include('youtube.urls')),
 ]
+
+

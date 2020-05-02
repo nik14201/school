@@ -21,7 +21,7 @@ export default {
       await this.$axios
         .$get('/api/v1/auth/profile/')
         .then(response => {
-          this.data = response[0];
+          this.data = response;
         });
     },
 

@@ -19,7 +19,7 @@ export default {
 
     async getInfos() {
       await this.$axios
-        .$get('/api/v2/youtube')
+        .$get('/api/v1/youtube/')
         .then(response => {
           this.info = response;
           console.log(response);

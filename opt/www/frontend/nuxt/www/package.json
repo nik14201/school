@@ -14,7 +14,7 @@
     "@nuxt/webpack": "^2.11.0",
     "@nuxtjs/axios": "^5.9.3",
     "@nuxtjs/yandex-metrika": "^1.0.3",
-    "bootstrap-vue": "^2.1.0",
+    "bootstrap-vue": "^2.13.0",
     "nuxt": "^2.11.0",
     "nuxt-edge": "latest",
     "nuxt-sass-resources-loader": "^2.0.5",
