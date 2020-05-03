@@ -7,6 +7,4 @@ router.register(r'', MainViewSet)
 
 urlpatterns = [
     url(r'^', include(router.urls)),
-    url(r'^/', include('rest_framework.urls', namespace='rest_framework')),
-
 ]

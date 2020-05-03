@@ -133,3 +133,13 @@ class Student(AbstractUser):
     @sclass.setter
     def sclass(self, value):
         self._sclass = value
+
+
+from rest_framework.authtoken.models import Token
+class TokenStudent(Token):
+    user = models.OneToOneField(
+        'student.Student', related_name='auth_token',
+        on_delete=models.CASCADE, verbose_name=_("Student")
+    )
+    class Meta:
+        abstract = False

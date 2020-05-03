@@ -43,3 +43,9 @@ class ObjectModelSerializer(serializers.ModelSerializer):
         model = User
         fields = '__all__'
 
+from .models import TokenStudent
+
+class TokenSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TokenStudent
+        fields = ['key']

@@ -6,7 +6,7 @@ class RegisterUserSerializer(serializers.HyperlinkedModelSerializer):
     password = serializers.CharField(write_only=True)
     class Meta:
         model = User
-        fields = ['email', 'password']
+        fields = ['email', 'password', 'username']
 
     def create(self, validated_data):
         email = validated_data['email'].lower()

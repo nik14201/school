@@ -2,7 +2,6 @@ from .settings import *
 
 
 SITE_ID = 1
-INSTALLED_APPS += ['rest_framework.authtoken']
 AUTH_USER_MODEL='profiles.Profile'
 
 ACCOUNT_USER_MODEL_USERNAME_FIELD='email'

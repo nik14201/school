@@ -112,6 +112,7 @@ class Teacher(AbstractUser):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
 
+
     class Meta:
         default_related_name = 'user_teacher'
         default_permissions =('add', 'change', 'delete')
@@ -119,4 +120,12 @@ class Teacher(AbstractUser):
         verbose_name_plural = "Учитель"
 
 
-
+from rest_framework.authtoken.models import Token
+from etc.settings.teacher import AUTH_USER_MODEL
+class TokenTeacher(Token):
+    user = models.OneToOneField(
+        'teacher.Teacher', related_name='auth_token',
+        on_delete=models.CASCADE, verbose_name=_("Teacher")
+    )
+    class Meta:
+        abstract = False

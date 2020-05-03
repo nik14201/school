@@ -6,6 +6,7 @@ from django.contrib.auth.models import AbstractUser
 from django.utils.translation import gettext_lazy as _
 from django.contrib.sites.models import Site
 from django.contrib.sites.managers import CurrentSiteManager
+from rest_framework.authtoken.models import Token
 
 class Profile(AbstractUser):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, unique=True)
@@ -110,7 +111,7 @@ class Profile(AbstractUser):
         blank=True)
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = []
+    REQUIRED_FIELDS = ['username']
 
     class Meta:
         default_related_name = 'user_profile'
@@ -118,4 +119,12 @@ class Profile(AbstractUser):
         verbose_name = "Администратор"
         verbose_name_plural = "Администратор"
 
+from rest_framework.authtoken.models import Token
 
+class TokenProfile(Token):
+    user = models.OneToOneField(
+        'profiles.Profile', related_name='auth_token',
+        on_delete=models.CASCADE, verbose_name=_("Profile")
+    )
+    class Meta:
+        abstract = False

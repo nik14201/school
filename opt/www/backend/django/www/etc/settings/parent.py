@@ -2,8 +2,8 @@ from .settings import *
 
 
 SITE_ID = 4
-INSTALLED_APPS += ['rest_framework.authtoken']
 AUTH_USER_MODEL = 'parent.Parent'
+
 
 ACCOUNT_USER_MODEL_USERNAME_FIELD='email'
 ACCOUNT_USERNAME_REQUIRED = False

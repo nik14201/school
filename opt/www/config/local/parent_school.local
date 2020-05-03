@@ -1,6 +1,7 @@
 server {
 server_name parent.school.local;
-set $django_host http://172.25.0.7:8080;
+#set $django_host http://172.25.0.7:8080;
+set $django_host http://127.0.0.1:8088;
 #set $vue_host http://172.25.0.20:3000;
 set $vue_host http://127.0.0.1:3000;
 location / {

@@ -1,7 +1,6 @@
 from .settings import *
 
 SITE_ID = 2
-INSTALLED_APPS += ['rest_framework.authtoken']
 AUTH_USER_MODEL = 'teacher.Teacher'
 
 ACCOUNT_USERNAME_REQUIRED = False

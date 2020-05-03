@@ -18,3 +18,14 @@ class UserTravellAdmin(admin.ModelAdmin):
 @admin.register(ParentStudentMM)
 class ParentStudentMMAdmin(admin.ModelAdmin):
     list_display = ['parent', 'student']
+
+
+
+
+from .models import TokenParent
+@admin.register(TokenParent)
+class TokenAdmin(admin.ModelAdmin):
+    list_display = ('key', 'user', 'created', )
+    fields = ('user',)
+    ordering = ('-created',)
+

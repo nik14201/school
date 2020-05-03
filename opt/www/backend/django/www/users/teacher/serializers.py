@@ -3,6 +3,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
+
 User = get_user_model()
 
 class RegisterUserSerializer(serializers.HyperlinkedModelSerializer):
@@ -43,3 +44,9 @@ class ObjectModelSerializer(serializers.ModelSerializer):
         model = User
         fields = '__all__'
 
+from .models import TokenTeacher
+
+class TokenSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TokenTeacher
+        fields = ['key']
