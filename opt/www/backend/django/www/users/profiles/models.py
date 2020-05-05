@@ -4,9 +4,11 @@ import uuid
 from django.contrib.auth.models import User, Permission, Group
 from django.contrib.auth.models import AbstractUser
 from django.utils.translation import gettext_lazy as _
+from django.contrib.sites.models import Site
+from django.contrib.sites.managers import CurrentSiteManager
+from rest_framework.authtoken.models import Token
 
-
-class ProfileUser(AbstractUser):
+class Profile(AbstractUser):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, unique=True)
     groups = models.ManyToManyField(
         Group,
@@ -116,15 +118,15 @@ class ProfileUser(AbstractUser):
         default_permissions =('add', 'change', 'delete')
         verbose_name = "Администратор"
         verbose_name_plural = "Администратор"
-        db_table = 'profileuser'
-        app_label = 'profileuser'
 
 from rest_framework.authtoken.models import Token
 
 class TokenProfile(Token):
     user = models.OneToOneField(
-        'profileuser.ProfileUser', related_name='auth_token',
-        on_delete=models.CASCADE, verbose_name=_("ProfileUser")
+        'profiles.Profile', related_name='auth_token',
+        on_delete=models.CASCADE, verbose_name=_("Profile")
     )
     class Meta:
         abstract = False
+        db_table = 'token_profile'
+        app_label = 'profiles'

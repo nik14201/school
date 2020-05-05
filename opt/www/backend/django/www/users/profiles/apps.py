@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 class ModelsConfig(AppConfig):
-    name = "profileuser"
+    name = "profiles"
     verbose_name = 'Администратор'

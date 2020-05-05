@@ -121,7 +121,6 @@ class Teacher(AbstractUser):
 
 
 from rest_framework.authtoken.models import Token
-from etc.settings.teacher import AUTH_USER_MODEL
 class TokenTeacher(Token):
     user = models.OneToOneField(
         'teacher.Teacher', related_name='auth_token',
@@ -129,3 +128,5 @@ class TokenTeacher(Token):
     )
     class Meta:
         abstract = False
+        db_table = 'token_teacher'
+        app_label = 'teacher'

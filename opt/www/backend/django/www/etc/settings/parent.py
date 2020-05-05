@@ -2,7 +2,7 @@ from .settings import *
 
 
 SITE_ID = 4
-AUTH_USER_MODEL = 'parentuser.ParentUser'
+AUTH_USER_MODEL = 'parent.Parent'
 
 
 ACCOUNT_USER_MODEL_USERNAME_FIELD='email'

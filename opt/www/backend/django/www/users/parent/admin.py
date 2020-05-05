@@ -1,9 +1,9 @@
 from django.utils.html import format_html
 from django.contrib import admin
-from .models import ParentUser, ParentStudentMM
+from .models import Parent, ParentStudentMM
 
 
-@admin.register(ParentUser)
+@admin.register(Parent)
 class UserTravellAdmin(admin.ModelAdmin):
     list_display = ['img_avatar', 'email']
     search_fields = ['email']

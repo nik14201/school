@@ -8,7 +8,7 @@ from django.contrib.sites.models import Site
 from django.contrib.sites.managers import CurrentSiteManager
 
 
-class ParentUser(AbstractUser):
+class Parent(AbstractUser):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, unique=True)
     groups = models.ManyToManyField(
         Group,
@@ -129,13 +129,11 @@ class ParentUser(AbstractUser):
         default_permissions = ('add', 'change', 'delete')
         verbose_name = "Родитель"
         verbose_name_plural = "Родитель"
-        db_table = 'parent_user'
-        app_label = 'parentuser'
 
 
 class ParentStudentMM(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    parent = models.ForeignKey('parentuser.ParentUser',
+    parent = models.ForeignKey('parent.Parent',
                                related_name="parent_mm_student",
                                on_delete=models.SET_NULL,
                                verbose_name="parent_mm_student",
@@ -153,10 +151,10 @@ from rest_framework.authtoken.models import Token
 
 class TokenParent(Token):
     user = models.OneToOneField(
-        ParentUser, related_name='auth_token',
-        on_delete=models.CASCADE, verbose_name=_("ParentUser")
+        'parent.Parent', related_name='auth_token',
+        on_delete=models.CASCADE, verbose_name=_("Parent")
     )
     class Meta:
         abstract = False
-        app_label = 'parentuser'
-        db_table = 'parent_token'
+        db_table = 'token_parent'
+        app_label = 'parent'

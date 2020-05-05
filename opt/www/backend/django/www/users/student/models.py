@@ -143,3 +143,5 @@ class TokenStudent(Token):
     )
     class Meta:
         abstract = False
+        db_table = 'token_student'
+        app_label = 'student'
