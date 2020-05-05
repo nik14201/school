@@ -2,11 +2,6 @@ server {
 server_name admin.school.local;
 set $django_host http://172.25.0.8:8080;
 #set $django_host http://127.0.0.1:8089;
-#set $vue_host http://172.25.0.20:3000;
-set $vue_host http://127.0.0.1:3000;
-location / {
-   proxy_pass $vue_host;
-}
 location /api/v2/admin/ {
         proxy_set_header        Host $host;
         proxy_set_header        X-Real-IP $remote_addr;

@@ -1,9 +1,9 @@
 #!/bin/bash
 #find . -iname "migrations" | xargs rm -r
-docker exec -it school_admin python3 manage.py    makemigrations profiles    --settings=etc.settings.admin
+docker exec -it school_admin python3 manage.py    makemigrations profileuser    --settings=etc.settings.admin
 docker exec -it school_teacher python3 manage.py  makemigrations teacher  --settings=etc.settings.teacher
 docker exec -it school_student python3 manage.py  makemigrations student  --settings=etc.settings.student
-docker exec -it school_parent  python3 manage.py  makemigrations parent   --settings=etc.settings.parent
+docker exec -it school_parent  python3 manage.py  makemigrations parentuser   --settings=etc.settings.parent
 
 docker exec -it school_admin python3 manage.py  makemigrations country --settings=etc.settings.admin
 docker exec -it school_admin python3 manage.py  makemigrations city --settings=etc.settings.admin

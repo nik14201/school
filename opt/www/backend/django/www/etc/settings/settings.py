@@ -53,10 +53,11 @@ INSTALLED_APPS = [
     'rest_auth.registration',
     'apiusers',
 
+    'profileuser',
     'teacher',
     'student',
-    'parent',
-    'profiles',
+    'parentuser',
+
 
     'country',
     'city',

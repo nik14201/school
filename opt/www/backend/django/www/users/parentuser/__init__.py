@@ -1,0 +1,1 @@
+default_app_config = 'parentuser.apps.ModelsConfig'

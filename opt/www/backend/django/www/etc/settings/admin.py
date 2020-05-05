@@ -2,7 +2,7 @@ from .settings import *
 
 
 SITE_ID = 1
-AUTH_USER_MODEL='profiles.Profile'
+AUTH_USER_MODEL='profileuser.ProfileUser'
 
 ACCOUNT_USER_MODEL_USERNAME_FIELD='email'
 ACCOUNT_USERNAME_REQUIRED = False
