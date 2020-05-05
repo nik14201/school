@@ -1,8 +1,10 @@
 import axios from 'axios';
+import VueCsrf from 'vue-csrf';
 import Weather from '~/components/weather/index.vue'
 export default {
   components: {
     Weather,
+    VueCsrf,
   },
   name: 'app',
   data () {
@@ -29,12 +31,8 @@ export default {
     // },
 
     async logoutUser() {
-      await this.$axios
-        .$post('/api/v1/auth/logout/')
-        .then(response => {
-          this.info = response;
-          document.cookie = "csrftoken=";
-        });
+      await this.$axios.$get('/api/v1/auth/logout/');
+      window.location.href = '/';
     },
 
 

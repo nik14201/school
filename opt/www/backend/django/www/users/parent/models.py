@@ -152,7 +152,6 @@ from rest_framework.authtoken.models import Token
 class TokenParent(Token):
     user = models.OneToOneField(
         'parent.Parent', related_name='auth_token',
-
         on_delete=models.CASCADE, verbose_name=_("Parent")
     )
     class Meta:

@@ -1,0 +1,411 @@
+[
+{
+  "model": "youtube.modelclassapp",
+  "pk": 1,
+  "fields": {
+    "title": "\u0412\u0432\u0435\u0434\u0435\u043d\u0438\u0435 \u0432 NumPy.",
+    "text": "\u0412\u0432\u0435\u0434\u0435\u043d\u0438\u0435 \u0432 NumPy.",
+    "youtube_src": "https://www.youtube.com/embed/J3mhh7x_AtI",
+    "width": 560,
+    "height": 315,
+    "date": "2020-05-05T07:11:24"
+  }
+},
+{
+  "model": "youtube.modelclassapp",
+  "pk": 2,
+  "fields": {
+    "title": "\u0412\u0432\u0435\u0434\u0435\u043d\u0438\u0435 \u0432 tensorflow.",
+    "text": "\u0412\u0432\u0435\u0434\u0435\u043d\u0438\u0435 \u0432 tensorflow.",
+    "youtube_src": "https://www.youtube.com/embed/ZsE00d4SQV0",
+    "width": 560,
+    "height": 315,
+    "date": "2020-05-05T07:11:24"
+  }
+},
+{
+  "model": "youtube.modelclassapp",
+  "pk": 3,
+  "fields": {
+    "title": "\u041f\u0440\u043e\u0444\u0438\u043b\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u0435 \u043f\u0440\u043e\u0435\u043a\u0442\u0430 \u043d\u0430 Django. cProfile. \u041a\u0435\u0448\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u0435 \u0432 Django.",
+    "text": "\u041f\u0440\u043e\u0444\u0438\u043b\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u0435 \u043f\u0440\u043e\u0435\u043a\u0442\u0430 \u043d\u0430 Django. cProfile. \u041a\u0435\u0448\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u0435 \u0432 Django.",
+    "youtube_src": "https://www.youtube.com/embed/pV-fKsFr2xg",
+    "width": 560,
+    "height": 315,
+    "date": "2020-05-05T07:11:24"
+  }
+},
+{
+  "model": "weather.weather",
+  "pk": 1,
+  "fields": {
+    "city": "\u0421\u0442\u0430\u0432\u0440\u043e\u043f\u043e\u043b\u044c",
+    "temperature": "+17",
+    "wind": "5",
+    "data": "2020-05-05T07:11:24"
+  }
+},
+{
+  "model": "teacher.teacher",
+  "pk": "3442acaf-26d8-4882-a3ac-16c1cbb8776e",
+  "fields": {
+    "password": "pbkdf2_sha256$180000$uDXKCZzCml4Q$O8QVB9gA36bvfNz7LqOsNYMzMUdH7xGj5Ez+mSb9Zok=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "teacher4@local.ru",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2020-05-03T17:27:39.937",
+    "avatar": "",
+    "email": "teacher4@local.ru",
+    "first_name": null,
+    "last_name": null,
+    "patronymic": null,
+    "title": null,
+    "phone": null,
+    "skype": null,
+    "whatsapp": null,
+    "url_freelance": null,
+    "url_facebook": null,
+    "url_vk": null,
+    "telegram": null,
+    "url_telegram": null,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "teacher.teacher",
+  "pk": "48fb5360-9eeb-4255-be10-85b06a20fefa",
+  "fields": {
+    "password": "pbkdf2_sha256$180000$wC9SH9fVCsN3$fawSug1Ja4OUfvhXVVZ92KRAEmqBDflRAab3eC+NgFc=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "teacher7@local.ru",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2020-05-03T17:30:24.934",
+    "avatar": "",
+    "email": "teacher7@local.ru",
+    "first_name": null,
+    "last_name": null,
+    "patronymic": null,
+    "title": null,
+    "phone": null,
+    "skype": null,
+    "whatsapp": null,
+    "url_freelance": null,
+    "url_facebook": null,
+    "url_vk": null,
+    "telegram": null,
+    "url_telegram": null,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "teacher.teacher",
+  "pk": "4a177eb1-9efc-4319-800e-48edd4b9ae6d",
+  "fields": {
+    "password": "pbkdf2_sha256$180000$DpJDxQkFKv4B$Cf07KSIbzipuChnxudSBt9gfnopLpkgZH0E1cXog1eE=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "teacher3@local.ru",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2020-05-03T17:26:31.034",
+    "avatar": "",
+    "email": "teacher3@local.ru",
+    "first_name": null,
+    "last_name": null,
+    "patronymic": null,
+    "title": null,
+    "phone": null,
+    "skype": null,
+    "whatsapp": null,
+    "url_freelance": null,
+    "url_facebook": null,
+    "url_vk": null,
+    "telegram": null,
+    "url_telegram": null,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "teacher.teacher",
+  "pk": "53ffe042-632a-4731-ab20-637666732161",
+  "fields": {
+    "password": "pbkdf2_sha256$180000$rW9burwek7Io$9A9Kql770fWTU8mJL672Wx7gNyzKSqkRGNhOcMEnmoQ=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "teache12r@local.ru",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2020-05-03T17:32:23.574",
+    "avatar": "",
+    "email": "teache12r@local.ru",
+    "first_name": null,
+    "last_name": null,
+    "patronymic": null,
+    "title": null,
+    "phone": null,
+    "skype": null,
+    "whatsapp": null,
+    "url_freelance": null,
+    "url_facebook": null,
+    "url_vk": null,
+    "telegram": null,
+    "url_telegram": null,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "teacher.teacher",
+  "pk": "75edcfe4-9952-4c07-b8d6-1a16068d0a47",
+  "fields": {
+    "password": "pbkdf2_sha256$180000$6zFOGcGnQUdk$YTO6MPxq8WXu4lNgqUqPnQFmEMsqd1Ho1qWo+eB2l3U=",
+    "last_login": "2020-05-05T07:35:48.390",
+    "is_superuser": false,
+    "username": "teacher@local.ru",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2020-05-03T17:23:30",
+    "avatar": "avatar/2020/05/05/a157e33152dbf0d9da5627b28a070bd6.jpg",
+    "email": "teacher@local.ru",
+    "first_name": null,
+    "last_name": null,
+    "patronymic": null,
+    "title": null,
+    "phone": null,
+    "skype": null,
+    "whatsapp": null,
+    "url_freelance": null,
+    "url_facebook": null,
+    "url_vk": null,
+    "telegram": null,
+    "url_telegram": null,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "teacher.teacher",
+  "pk": "7b51d67c-1034-45ea-a1b5-e4348c76bd2c",
+  "fields": {
+    "password": "pbkdf2_sha256$180000$AlZiAzc0vFbM$g2a5gbARQ8K6tW3wEEmYETu8lZu0qJ7PV9e5F1VgHG4=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "teacher2@local.ru",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2020-05-03T17:24:50.061",
+    "avatar": "",
+    "email": "teacher2@local.ru",
+    "first_name": null,
+    "last_name": null,
+    "patronymic": null,
+    "title": null,
+    "phone": null,
+    "skype": null,
+    "whatsapp": null,
+    "url_freelance": null,
+    "url_facebook": null,
+    "url_vk": null,
+    "telegram": null,
+    "url_telegram": null,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "teacher.teacher",
+  "pk": "ea9e710d-3bdf-4cd1-bc62-016d4e51caa6",
+  "fields": {
+    "password": "pbkdf2_sha256$180000$wDpIMDo9CZCc$EbJ1n7CYlmqBX8D6H7n3FgTYviYypPNGUOS/quA3Ai0=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "teacher3242@local.ru",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2020-05-03T17:34:47.256",
+    "avatar": "",
+    "email": "teacher3242@local.ru",
+    "first_name": null,
+    "last_name": null,
+    "patronymic": null,
+    "title": null,
+    "phone": null,
+    "skype": null,
+    "whatsapp": null,
+    "url_freelance": null,
+    "url_facebook": null,
+    "url_vk": null,
+    "telegram": null,
+    "url_telegram": null,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "teacher.tokenteacher",
+  "pk": "153ec6e9b89ce1d9dd91817ca9e1d167f7647ac4",
+  "fields": {
+    "created": "2020-05-03T17:30:30.505",
+    "user": "48fb5360-9eeb-4255-be10-85b06a20fefa"
+  }
+},
+{
+  "model": "teacher.tokenteacher",
+  "pk": "170b91f23d930b4c8f23958eede9a05d0cd88d5c",
+  "fields": {
+    "created": "2020-05-03T17:24:50.282",
+    "user": "7b51d67c-1034-45ea-a1b5-e4348c76bd2c"
+  }
+},
+{
+  "model": "teacher.tokenteacher",
+  "pk": "20a61cf951b314d5b3cb3ebe62dacb085b6b5ed6",
+  "fields": {
+    "created": "2020-05-05T07:35:48.383",
+    "user": "75edcfe4-9952-4c07-b8d6-1a16068d0a47"
+  }
+},
+{
+  "model": "teacher.tokenteacher",
+  "pk": "266d55bf3c8f8a91e758bb41f1f4aa4108c82aaf",
+  "fields": {
+    "created": "2020-05-03T17:27:40.101",
+    "user": "3442acaf-26d8-4882-a3ac-16c1cbb8776e"
+  }
+},
+{
+  "model": "teacher.tokenteacher",
+  "pk": "679a785acaf78f9e6cfde708be9a7a0360d163d2",
+  "fields": {
+    "created": "2020-05-03T17:34:47.541",
+    "user": "ea9e710d-3bdf-4cd1-bc62-016d4e51caa6"
+  }
+},
+{
+  "model": "teacher.tokenteacher",
+  "pk": "bbfc021a829db80e7397128c672a42f8f2427456",
+  "fields": {
+    "created": "2020-05-03T17:26:31.200",
+    "user": "4a177eb1-9efc-4319-800e-48edd4b9ae6d"
+  }
+},
+{
+  "model": "teacher.tokenteacher",
+  "pk": "bd1751e493489deae2cf32e89941767889f01a6c",
+  "fields": {
+    "created": "2020-05-03T17:32:23.796",
+    "user": "53ffe042-632a-4731-ab20-637666732161"
+  }
+},
+{
+  "model": "student.student",
+  "pk": "bddd050e-60bd-4393-82af-79b59842360d",
+  "fields": {
+    "password": "pbkdf2_sha256$180000$ZViKcMNLi6FZ$4t579IjuowzmmTEB1iPwbGEKugIO3QN+grPqUOZ376g=",
+    "last_login": "2020-05-05T07:32:28.781",
+    "is_superuser": false,
+    "username": "student@local.ru",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2020-05-03T17:35:09.200",
+    "_sclass": null,
+    "avatar": "",
+    "email": "student@local.ru",
+    "first_name": null,
+    "last_name": null,
+    "patronymic": null,
+    "title": null,
+    "phone": null,
+    "skype": null,
+    "whatsapp": null,
+    "url_freelance": null,
+    "url_facebook": null,
+    "url_vk": null,
+    "telegram": null,
+    "url_telegram": null,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "profiles.profile",
+  "pk": "295a5a35-17d6-484f-813b-dbf117e6c024",
+  "fields": {
+    "password": "pbkdf2_sha256$180000$yFLePaIlAkXW$BincNAvBNsg/zzoRhmE+Ig4nIiqbG6U5Pvz9FINsAOM=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "admin323@local.ru",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2020-05-03T17:36:07.815",
+    "avatar": "",
+    "email": "admin323@local.ru",
+    "first_name": null,
+    "last_name": null,
+    "patronymic": null,
+    "title": null,
+    "phone": null,
+    "skype": null,
+    "whatsapp": null,
+    "url_freelance": null,
+    "url_facebook": null,
+    "url_vk": null,
+    "telegram": null,
+    "url_telegram": null,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "profiles.profile",
+  "pk": "9ccc3ff0-72da-426f-9a56-3eb376285e8e",
+  "fields": {
+    "password": "pbkdf2_sha256$180000$tOmFUWF7GfHA$u5l6LobchgNGLbpmahcPSt/y1yzqOktGQql0iORgvW8=",
+    "last_login": "2020-05-04T07:42:01.113",
+    "is_superuser": true,
+    "username": "admin",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2020-05-03T17:15:09.556",
+    "avatar": "",
+    "email": "admin@local.ru",
+    "first_name": null,
+    "last_name": null,
+    "patronymic": null,
+    "title": null,
+    "phone": null,
+    "skype": null,
+    "whatsapp": null,
+    "url_freelance": null,
+    "url_facebook": null,
+    "url_vk": null,
+    "telegram": null,
+    "url_telegram": null,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "profiles.tokenprofile",
+  "pk": "5456fe504e849ab21c2186d8e910079fbfa70d33",
+  "fields": {
+    "created": "2020-05-04T07:42:01.105",
+    "user": "9ccc3ff0-72da-426f-9a56-3eb376285e8e"
+  }
+},
+{
+  "model": "profiles.tokenprofile",
+  "pk": "7166226bead05733e41aa0e2da831aa70b303590",
+  "fields": {
+    "created": "2020-05-03T17:36:07.983",
+    "user": "295a5a35-17d6-484f-813b-dbf117e6c024"
+  }
+}
+]

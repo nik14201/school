@@ -30,7 +30,6 @@ export default {
   },
 
   mounted() {
-   //this.ym(56657455, "init", {});
 
   },
 

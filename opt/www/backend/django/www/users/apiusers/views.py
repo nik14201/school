@@ -1,4 +1,9 @@
 from rest_framework import  viewsets
+from django.contrib.auth import (
+    login as django_login,
+    logout as django_logout
+)
+from django.core.exceptions import ObjectDoesNotExist
 from rest_framework import status
 from .serializers import *
 from rest_framework.reverse import reverse
@@ -186,7 +191,17 @@ class UserLoginViewSet(LoginView):
         return self.get_response()
 
 class UserLogoutViewSet(LogoutView):
-    pass
+    def get(self, request, *args, **kwargs):
+        if getattr(settings, 'ACCOUNT_LOGOUT_ON_GET', False):
+            response = self.logout(request)
+        else:
+            response = self.http_method_not_allowed(request, *args, **kwargs)
+
+        return self.finalize_response(request, response, *args, **kwargs)
+
+    def post(self, request, *args, **kwargs):
+        return self.logout(request)
+
 
 
 class ObjectModelViewSet(APIView):

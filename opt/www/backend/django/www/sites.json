@@ -1,0 +1,34 @@
+[
+{
+  "model": "sites.site",
+  "pk": 1,
+  "fields": {
+    "domain": "admin.school.local",
+    "name": "admin.school.local"
+  }
+},
+{
+  "model": "sites.site",
+  "pk": 2,
+  "fields": {
+    "domain": "teacher.school.local",
+    "name": "teacher.school.local"
+  }
+},
+{
+  "model": "sites.site",
+  "pk": 3,
+  "fields": {
+    "domain": "student.school.local",
+    "name": "student.school.local"
+  }
+},
+{
+  "model": "sites.site",
+  "pk": 4,
+  "fields": {
+    "domain": "parent.school.local",
+    "name": "parent.school.local"
+  }
+}
+]
