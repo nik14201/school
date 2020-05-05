@@ -64,6 +64,7 @@ INSTALLED_APPS = [
     'lesson',
     'school',
     'sclass',
+    'diary',
     'subject',
     'weather',
     'youtube',

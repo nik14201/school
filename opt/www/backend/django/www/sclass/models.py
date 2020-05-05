@@ -38,7 +38,7 @@ class MainModel(models.Model):
     _active = models.BooleanField(default=True)
 
     def __str__(self):
-        return "%s  %s" % (self._name, self._code)
+        return "%s  %s" % (self._letter, self._school)
 
     class Meta:
         verbose_name = verbose_name

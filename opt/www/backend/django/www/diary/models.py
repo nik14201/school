@@ -12,6 +12,7 @@ class MainModel(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     _teacher = models.ForeignKey(
         'teacher.Teacher',
+        related_name='diary_teacher',
         on_delete=models.SET_NULL,
         verbose_name="Учитель",
         null=True,
@@ -19,6 +20,7 @@ class MainModel(models.Model):
     )
     _student = models.ForeignKey(
         'student.Student',
+        related_name='diary_student',
         on_delete=models.SET_NULL,
         verbose_name="Ученик",
         null=True,
@@ -26,6 +28,7 @@ class MainModel(models.Model):
     )
     _homework = models.ForeignKey(
         'homework.MainModel',
+        related_name='diary_homework',
         on_delete=models.SET_NULL,
         verbose_name="Домашнее задание",
         null=True,

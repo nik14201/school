@@ -13,7 +13,7 @@ class MainModel(models.Model):
     _school = models.ForeignKey(
         'school.MainModel',
         on_delete=models.SET_NULL,
-        verbose_name="Страна",
+        verbose_name="Школа",
         null=True,
         blank=True
     )
