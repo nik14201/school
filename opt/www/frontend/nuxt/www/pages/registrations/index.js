@@ -1,4 +1,3 @@
-import Hello from '~/components/hello/index.vue'
 import axios from 'axios';
 export default {
 

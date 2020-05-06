@@ -1,9 +1,6 @@
 from django.conf.urls import url, include
 from django.urls import path
 from .views import *
-#from rest_framework import routers
-#router = routers.DefaultRouter()
-#router.register(r'', ObjectModelViewSet)
 
 urlpatterns = [
 	path('', APIRootView.as_view(), name='api-root'),

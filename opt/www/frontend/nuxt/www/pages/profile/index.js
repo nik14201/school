@@ -25,12 +25,19 @@ data() {
     }
   },
 
+computed: {
+  getKey() {
+    return this.$store.getters.GET_KEY;
+  },
+},
+
+
   created() {
 
   },
 
   mounted() {
-
+    var key = this.$store.getters['store/GET_KEY'];
 
   },
 

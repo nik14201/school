@@ -41,6 +41,7 @@ export default {
   */
   modules: [
   '@nuxtjs/axios',
+  'cookie-universal-nuxt',
   'nuxt-sass-resources-loader',
   'bootstrap-vue/nuxt',
   '@nuxtjs/axios',

@@ -7,6 +7,3 @@ class ObjectModelSerializer(serializers.ModelSerializer):
         model = ObjectModel 
         fields = '__all__'
 
-class ObjectModelViewSet(viewsets.ModelViewSet):
-    queryset = ObjectModel.objects.order_by('-id')[:1]
-    serializer_class = ObjectModelSerializer

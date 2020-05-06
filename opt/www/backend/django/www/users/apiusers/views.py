@@ -20,9 +20,9 @@ from rest_auth.views import UserDetailsView, LoginView, LogoutView
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
 from django.contrib.auth import get_user_model
-from .utils import get_token_model, get_token_serializers
-
-
+from utils.utils import get_token_model, get_token_serializers
+#from rest_framework.authentication import TokenAuthentication
+from utils.authentication import TokenAuthentication
 User = get_user_model()
 
 
@@ -115,8 +115,9 @@ class RegisterUserViewSet(RegisterView):
 
 # ViewSets define the view behavior.
 class UserDetailsViewSet(UserDetailsView):
-    serializer_class = UserDetailsSerializer
+    authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
+    serializer_class = UserDetailsSerializer
 
     def get_object(self, *args, **kwargs):
         try:
@@ -205,6 +206,8 @@ class UserLogoutViewSet(LogoutView):
 
 
 class ObjectModelViewSet(APIView):
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
 
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
@@ -215,6 +218,8 @@ class ObjectModelViewSet(APIView):
 
 
 class IsAuthentificateView(APIView):
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
 
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:

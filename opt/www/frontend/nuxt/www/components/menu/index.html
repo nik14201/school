@@ -1,16 +1,16 @@
 <div>
   <b-navbar toggleable="lg" type="dark" variant="info">
-    <b-navbar-brand href="/">Домой</b-navbar-brand>
+    <b-navbar-brand to="/">Домой</b-navbar-brand>
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
         <b-nav-item href="/api/v1/auth/">API</b-nav-item>
-        <b-nav-item href="/profile/">Профиль</b-nav-item>
-        <b-nav-item href="/youtube/">Ютуб</b-nav-item>
-        <b-nav-item href="/homework/">Домашнее задание</b-nav-item>
-        <b-nav-item href="#">Link</b-nav-item>
+        <b-nav-item to="/profile/">Профиль</b-nav-item>
+        <b-nav-item to="/youtube/">Ютуб</b-nav-item>
+        <b-nav-item to="/homework/">Домашнее задание</b-nav-item>
+        <b-nav-item to="#">Link</b-nav-item>
         <weather />
-        <b-nav-item href="#" disabled>Disabled</b-nav-item>
+        <b-nav-item to="#" disabled>Disabled</b-nav-item>
       </b-navbar-nav>
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto">
@@ -19,8 +19,8 @@
           <b-button size="sm" class="my-2 my-sm-0" type="submit">Search</b-button>
         </b-nav-form>
         <b-nav-item-dropdown text="Lang" right>
-          <b-dropdown-item href="#">RU</b-dropdown-item>
-          <b-dropdown-item href="#">En</b-dropdown-item>
+          <b-dropdown-item to="#">RU</b-dropdown-item>
+          <b-dropdown-item to="#">En</b-dropdown-item>
         </b-nav-item-dropdown>
         <b-nav-item-dropdown right>
           <!-- Using 'button-content' slot -->
@@ -28,7 +28,7 @@
             <em>User</em>
           </template>
           <b-dropdown-item href="/api/v2/admin/">Админка</b-dropdown-item>
-          <b-dropdown-item href="/profile/">Профиль</b-dropdown-item>
+          <b-dropdown-item to="/profile/">Профиль</b-dropdown-item>
           <b-dropdown-item v-on:click='logoutUser'>Выйти</b-dropdown-item>
         </b-nav-item-dropdown>
       </b-navbar-nav>

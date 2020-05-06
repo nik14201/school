@@ -32,7 +32,9 @@ export default {
 
     async logoutUser() {
       await this.$axios.$get('/api/v1/auth/logout/');
-      window.location.href = '/';
+      this.$store.dispatch('store/SET_KEY', 0);
+      this.$cookies.set('token', 0, {path:window.location.hostname});
+      this.$router.replace({ path: '/login/' });
     },
 
 

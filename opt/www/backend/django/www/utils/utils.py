@@ -29,3 +29,20 @@ def get_token_serializers(user):
         return TokenProfileSerializer
 
 
+def get_token_model_auth(User):
+    user=User()
+    if isinstance(user, Teacher):
+        del user
+        return TokenTeacher
+    elif isinstance(user, Student):
+        del user
+        return TokenStudent
+    elif isinstance(user, Profile):
+        del user
+        return TokenProfile
+    elif isinstance(user, Parent):
+        del user
+        return TokenParent
+    else:
+        del user
+        return None

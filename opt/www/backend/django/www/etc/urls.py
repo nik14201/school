@@ -22,6 +22,7 @@ urlpatterns = [
     path('api/v1/auth/', include('apiusers.urls')),
     path('api/v1/weather/', include('weather.urls')),
     path('api/v1/youtube/', include('youtube.urls')),
+    path('api/v1/city/', include('city.urls')),
 ]
 
 

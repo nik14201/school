@@ -3,7 +3,7 @@ from rest_framework.permissions import IsAuthenticated
 from utils.authentication import TokenAuthentication
 from rest_framework.response import Response
 from .serializers import ObjectModelSerializer
-from .models import Weather as ModelClassApp
+from .models import ModelClassApp
 
 class ObjectModelViewSet(APIView):
     authentication_classes = (TokenAuthentication,)

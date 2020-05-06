@@ -26,14 +26,21 @@ export default {
     }
   },
 
+
+
   created() {
   },
 
   mounted() {
 
+
   },
 
   methods: {
+
+    getUser(){
+      
+    }
 
     }
 }

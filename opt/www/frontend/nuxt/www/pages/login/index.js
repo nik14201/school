@@ -1,4 +1,3 @@
-import Hello from '~/components/hello/index.vue'
 import axios from 'axios';
 export default {
 
@@ -48,13 +47,13 @@ export default {
         console.log(response);
           if (response.status==200){
             this.data.msg = "Успешно";
-            document.cookie = "token="+response.data.key;
+            this.$store.dispatch('store/SET_KEY', response.data.key);
+            this.$cookies.set('token', response.data.key, {path:window.location.hostname});
 
           setTimeout(() => {
             //this.$nuxt.$router.replace({ path: '/'});
-            // или
-                //this.$router.replace({ path: '/' });
-                window.location.href = '/'
+            this.$router.replace({ path: '/' });
+           //window.location.href = '/'
               }, 1000)
 
           }else{
