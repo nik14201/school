@@ -19,6 +19,19 @@
  */
 
 /*!
+ * cookie
+ * Copyright(c) 2012-2014 Roman Shtylman
+ * Copyright(c) 2015 Douglas Christopher Wilson
+ * MIT Licensed
+ */
+
+/*!
+ * perfect-scrollbar v1.4.0
+ * (c) 2018 Hyunje Jun
+ * @license MIT
+ */
+
+/*!
  * vue-client-only v2.0.0
  * (c) 2019-present egoist <0x142857@gmail.com>
  * Released under the MIT License.
@@ -42,8 +55,8 @@
  */
 
 /**
- * vuex v3.1.2
- * (c) 2019 Evan You
+ * vuex v3.3.0
+ * (c) 2020 Evan You
  * @license MIT
  */
 

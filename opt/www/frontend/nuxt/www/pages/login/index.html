@@ -1,46 +1,27 @@
 <div>
-
-
 <div class="container">
- <div class="row main-form">
- <form class="" method="post" action="#">
- 
-
- <div class="form-group">
- <label for="email" class="cols-sm-2 control-label">Your Email</label>
- <div class="cols-sm-10">
- <div class="input-group">
- <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
- <input type="text" class="form-control" name="email" id="email" v-model="email" placeholder="Enter your Email"/>
+		<div class="row main-form">
+            <div class="col-md-6">
+                <div class="main-card mb-3 card">
+                    <div class="card-body"><h5 class="card-title">Войти в систему</h5>
+                        
+                            <div class="position-relative form-group">
+                            	<label for="exampleEmail" class="">Email</label>
+                            <input name="email" v-model="email"  id="exampleEmail" placeholder="with a placeholder" type="email" class="form-control">
+                            </div>
+                            <div class="position-relative form-group"><label for="examplePassword"
+                                                                             class="">Password</label>
+                            <input v-model="password" 
+                                name="password" id="examplePassword" placeholder="password placeholder" type="password"
+                                class="form-control"></div>
+                            <button v-on:click="loginUser" class="mt-1 btn btn-primary">Войти</button>
+                            <button v-on:click="gotoRegistrations" class="mt-1 btn btn-primary">Зарегистрироваться</button>
+                    </div>
+                    
+                    
+              
+                </div>
+            </div>
+        </div>
  </div>
- </div>
- </div>
-
-
-
- <div class="form-group">
- <label for="password" class="cols-sm-2 control-label">Password</label>
- <div class="cols-sm-10">
- <div class="input-group">
- <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
- <input type="password" class="form-control" name="password" id="password" v-model="password" placeholder="Enter your Password"/>
- </div>
- </div>
- </div>
-
-
-
- <div class="form-group ">
- <button v-on:click="loginUser" target="_blank" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button">Войти</button>
- </div>
-
- <div class="form-group ">
- <a href="/registrations/">Регистрация</a>
- </div>
- 
- </form>
- </div>
- </div>
-
-
 </div>

@@ -4,7 +4,7 @@ import Youtube from '~/components/youtube/index.vue'
 import Menus from '~/components/menu/index.vue'
 export default {
   head: {
-    title: 'Web разработчик Django',
+    title: 'School',
   meta: [
     { charset: 'utf-8' },
     { name: 'viewport', content: 'Web - разработчик  - Django  - python - docker - golang - купить сайт - разработка на django - создать сайт - web разработчик' },

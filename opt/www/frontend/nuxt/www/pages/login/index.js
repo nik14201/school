@@ -67,5 +67,10 @@ export default {
 
     },
 
+
+    gotoRegistrations() {
+          this.$router.replace({ path: '/registrations/' });
+    },
+
   }
 }

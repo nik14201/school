@@ -1,5 +1,5 @@
 from rest_framework import  serializers, viewsets
-from .models import  ModelClassApp
+from .models import ModelClassApp
 
 class ObjectModelSerializer(serializers.ModelSerializer):
     class Meta:

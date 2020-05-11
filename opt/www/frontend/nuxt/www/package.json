@@ -11,6 +11,9 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.28",
+    "@fortawesome/free-solid-svg-icons": "^5.13.0",
+    "@fortawesome/vue-fontawesome": "^0.1.9",
     "@nuxt/webpack": "^2.11.0",
     "@nuxtjs/axios": "^5.9.3",
     "@nuxtjs/yandex-metrika": "^1.0.3",
@@ -21,14 +24,17 @@
     "nuxt-sass-resources-loader": "^2.0.5",
     "nuxt-vuex-localstorage": "^1.2.6",
     "scss": "^0.2.4",
+    "vue-chartjs": "^3.5.0",
     "vue-csrf": "^2.0.4",
+    "vue-fontawesome": "0.0.2",
+    "vue-perfect-scrollbar": "^0.2.1",
     "vue-yandex-metrika": "^1.8.3",
     "vuex": "^3.3.0"
   },
   "devDependencies": {
     "coffee-loader": "^0.9.0",
     "coffeescript": "^2.4.1",
-    "node-sass": "^4.13.0",
+    "node-sass": "^4.14.1",
     "pug": "^2.0.3",
     "pug-plain-loader": "^1.0.0",
     "sass-loader": "^8.0.0",
