@@ -23,6 +23,11 @@ from django.contrib.auth import get_user_model
 from utils.utils import get_token_model, get_token_serializers
 #from rest_framework.authentication import TokenAuthentication
 from utils.authentication import TokenAuthentication
+from rest_framework.generics import GenericAPIView
+from rest_framework.mixins import UpdateModelMixin
+from rest_framework.parsers import MultiPartParser, FileUploadParser
+
+
 User = get_user_model()
 
 
@@ -208,6 +213,25 @@ class UserLogoutViewSet(LogoutView):
 class ObjectModelViewSet(APIView):
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
+    parser_classes = [MultiPartParser, FileUploadParser,]
+
+    def patch(self, request,  *args, **kwargs):
+        if request.user.is_authenticated:
+            serializer = ObjectModelSerializer(request.user, data=request.data, files=request.FILES,  partial=True)
+            serializer.is_valid(raise_exception=True)
+            serializer.save()
+            return Response(serializer.data)
+        else:
+            return Response({"authentificate": False})
+
+    def post(self, request,  *args, **kwargs):
+        if request.user.is_authenticated:
+            serializer = ObjectModelSerializer(request.user, data=request.data)
+            serializer.is_valid(raise_exception=True)
+            serializer.save()
+            return Response(serializer.data)
+        else:
+            return Response({"authentificate": False})
 
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:

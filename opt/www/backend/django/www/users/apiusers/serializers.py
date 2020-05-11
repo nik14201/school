@@ -42,5 +42,4 @@ class UserLoginSerializer(serializers.HyperlinkedModelSerializer):
 class ObjectModelSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = '__all__'
-
+        fields = ['email', 'skype', 'avatar', 'first_name', 'last_name', 'patronymic', 'phone', 'url_facebook', 'url_vk']

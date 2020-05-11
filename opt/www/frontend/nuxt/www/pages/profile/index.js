@@ -2,6 +2,7 @@ import Auth from '~/components/authentificate/index.vue'
 import Youtube from '~/components/youtube/index.vue'
 import Menus from '~/components/menu/index.vue'
 import Profile from '~/components/profile/index.vue'
+import profileedit from '~/components/profile-edit/index.vue'
 export default {
 
 
@@ -10,6 +11,7 @@ export default {
     Menus,
     Youtube,
     Profile,
+    profileedit,
   },
   name: 'app',
   data() {
