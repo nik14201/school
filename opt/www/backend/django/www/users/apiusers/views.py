@@ -217,7 +217,7 @@ class ObjectModelViewSet(APIView):
 
     def patch(self, request,  *args, **kwargs):
         if request.user.is_authenticated:
-            serializer = ObjectModelSerializer(request.user, data=request.data, files=request.FILES,  partial=True)
+            serializer = ObjectModelSerializer(request.user, data=request.data,  partial=True)
             serializer.is_valid(raise_exception=True)
             serializer.save()
             return Response(serializer.data)
