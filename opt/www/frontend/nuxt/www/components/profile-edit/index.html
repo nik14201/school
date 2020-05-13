@@ -1,14 +1,16 @@
 <div class="container">
-  <div class="row main-form">
+  <div class="row main-form justify-content-center">
     <div class="col-md-6">
       <div class="main-card mb-3 card">
         <div class="card-body">
           <h5 class="card-title">Редактировать профиль пользователя</h5>
-          <form id="profile" method="post">
+          <form id="avatar" method="post">
             <div class="profile col-lg-2">
               <img class="profile_img" v-bind:src="data.avatar">
             </div>
             <input v-on:change="handleFileUpload()" name='avatar' id='avatar' type="file" ref='file' class="mt-1 btn btn-primary">
+          </form>
+          <form id="profile" method="post">
             <div class="position-relative form-group">
               <label for="last_name" class="">Фамилия:</label>
               <input v-model="data.last_name" name="last_name" id="last_name" placeholder="Фамилия" type="text" class="form-control">

@@ -213,7 +213,7 @@ class UserLogoutViewSet(LogoutView):
 class ObjectModelViewSet(APIView):
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
-    parser_classes = [MultiPartParser, FileUploadParser,]
+    parser_classes = [MultiPartParser,]
 
     def patch(self, request,  *args, **kwargs):
         if request.user.is_authenticated:

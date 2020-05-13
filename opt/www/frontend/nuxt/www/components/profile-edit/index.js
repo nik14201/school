@@ -46,28 +46,29 @@ export default {
 
     handleFileUpload() {
       this.data.avatar = this.$refs.file.files[0];
+      var formData = new FormData(avatar);
+      var key = this.getToken();
+      const headers = { 'Authorization': `Token ${key}` }
+      this.$axios
+        .$patch('/api/v1/auth/profile/', formData, { headers: headers })
+        .then(response => {
+          setTimeout(() => {
+            this.getData();
+            this.$router.replace({ path: '/profile/edit' });
+          }, 1000)
+        });
+
     },
 
     async saveProfile() {
       var formData = new FormData(profile);
-      const data = {
-        'url_facebook': this.data.url_facebook,
-        'url_vk': this.data.url_vk,
-        'email': this.data.email,
-        'skype': this.data.skype,
-      }
-
       var key = this.getToken();
       const headers = { 'Authorization': `Token ${key}` }
-      //const headers = {'Authorization': `Token ${key}`, 'Content-Type': 'multipart/form-data', 'Content-Disposition': 'attachment; filename=this.data.avatar.name'}
       await this.$axios
         .$patch('/api/v1/auth/profile/', formData, { headers: headers })
         .then(response => {
-          //this.data = response;
           setTimeout(() => {
-            //this.$nuxt.$router.replace({ path: '/'});
             this.$router.replace({ path: '/profile/' });
-            //window.location.href = '/'
           }, 1000)
         });
     },
