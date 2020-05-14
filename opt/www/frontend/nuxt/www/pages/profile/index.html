@@ -4,7 +4,26 @@
     <link href="https://fonts.googleapis.com/css?family=Lobster|Pacifico&display=swap" rel="stylesheet">
   </div>
   <menus />
-  <div class="container">
-    <profile />
+  <div class="container-fluid">
+  	<div class="row justify-content-start" v-model="getData">
+  		<div class="col-lg-2">
+	    	<profile />
+	    </div>
+	    <div class="contact col-lg-2">
+	    	<div v-for="i in 100">
+	    		When Vue is updating a list of elements rendered with v-for, by default it uses an “in-place patch”  <br> strategy. If the order of the data items has <br>changed, instead of moving the DOM elements to match the order of the ... v-for with <br> a Range. v-for can also take an integer. In this case it will repeat the template that many times. <br>
+	    	</div>
+		</div>
+		<div class="contact col-lg-6">
+	    	<div v-for="i in 100">
+	    		When Vue is updating a list of elements rendered with v-for, by default it uses an “in-place patch”  <br> strategy. If the order of the data items has <br>changed, instead of moving the DOM elements to match the order of the ... v-for with  a Range. v-for can also take an integer. In this case it will repeat the template that many times. <br>
+	    	</div>
+		</div>
+		<div class="contact col-lg-2">
+	    	<div v-for="i in 100">
+	    		When Vue is updating a list of elements rendered with v-for, by default it uses an “in-place patch”  <br> strategy. If the order of the data items has <br>changed, instead of moving the DOM elements to match the order of the ... v-for with <br> a Range. v-for can also take an integer. In this case it will repeat the template that many times. <br>
+	    	</div>
+		</div>
+	</div>
   </div> <!-- class="container" -->
 </div>

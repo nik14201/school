@@ -43,7 +43,6 @@ export default {
         });
     },
 
-
     handleFileUpload() {
       this.data.avatar = this.$refs.file.files[0];
       var formData = new FormData(avatar);
