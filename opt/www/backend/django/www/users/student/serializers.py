@@ -1,7 +1,7 @@
 from rest_framework import serializers
-from .models import TokenStudent
+from .models import Token
 
 class TokenSerializer(serializers.ModelSerializer):
     class Meta:
-        model = TokenStudent
+        model = Token
         fields = ['key']

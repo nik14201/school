@@ -1,7 +1,7 @@
 from .settings import *
 
 SITE_ID = 2
-AUTH_USER_MODEL = 'teacher.Teacher'
+AUTH_USER_MODEL = 'teacher.User'
 
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_EMAIL_REQUIRED = True

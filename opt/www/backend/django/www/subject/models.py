@@ -18,7 +18,7 @@ class MainModel(models.Model):
         blank=True
     )
     _teacher = models.ForeignKey(
-        'teacher.Teacher',
+        'teacher.User',
         on_delete=models.SET_NULL,
         verbose_name="Учитель",
         null=True,

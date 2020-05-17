@@ -1,7 +1,7 @@
-from parent.models import Parent,    TokenParent
-from teacher.models import Teacher,  TokenTeacher
-from student.models import Student,  TokenStudent
-from profiles.models import Profile, TokenProfile
+from parent.models import User as Parent,  Token as TokenParent
+from teacher.models import User as Teacher, Token as TokenTeacher
+from student.models import User as Student, Token as TokenStudent
+from profiles.models import User as Profile, Token as TokenProfile
 
 from parent.serializers import TokenSerializer as TokenParentSerializer
 from teacher.serializers import TokenSerializer as TokenTeacherSerializer
