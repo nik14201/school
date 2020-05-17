@@ -11,7 +11,7 @@ app_label = 'diary'
 class MainModel(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     _teacher = models.ForeignKey(
-        'teacher.Teacher',
+        'teacher.User',
         related_name='diary_teacher',
         on_delete=models.SET_NULL,
         verbose_name="Учитель",
@@ -19,7 +19,7 @@ class MainModel(models.Model):
         blank=True
     )
     _student = models.ForeignKey(
-        'student.Student',
+        'student.User',
         related_name='diary_student',
         on_delete=models.SET_NULL,
         verbose_name="Ученик",
