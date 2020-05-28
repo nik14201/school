@@ -57,8 +57,8 @@ class MainModel(models.Model):
 
     @property
     def lesson(self):
-        return self._lesson
+        return self._lesson.name
 
     @lesson.setter
     def lesson(self, value):
-        self._lesson = value
+        self._lesson.id = value

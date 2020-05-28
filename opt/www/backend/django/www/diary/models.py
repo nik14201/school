@@ -74,16 +74,23 @@ class MainModel(models.Model):
 
     @property
     def student(self):
-        return self._student
+        return self._student.name
 
     @student.setter
     def student(self, value):
         self._student = value
 
+    @property
+    def teacher(self):
+        return self._teacher.name
+
+    @teacher.setter
+    def teacher(self, value):
+        self._teacher = value
 
     @property
     def homework(self):
-        return self._homework
+        return self._homework.name
 
     @homework.setter
     def homework(self, value):
