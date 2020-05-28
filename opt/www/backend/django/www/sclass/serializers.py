@@ -5,7 +5,7 @@ from rest_framework.response import Response
 class MainSerializer(serializers.ModelSerializer):
     class Meta:
         model = MainModel
-        fields = '__all__'
+        fields = ['id', 'letter', 'school', 'datecreate']
 
 class MainViewSet(viewsets.ModelViewSet):
     queryset = MainModel.objects.order_by('-id')[:1]

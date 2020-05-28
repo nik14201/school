@@ -64,16 +64,16 @@ class MainModel(models.Model):
 
     @property
     def school(self):
-        return self._school
+        return self._school.id
 
     @school.setter
     def school(self, value):
-        self._school = value
+        self._school.id = value
 
     @property
     def teacher(self):
-        return self._teacher
+        return self._teacher.id
 
     @teacher.setter
     def teacher(self, value):
-        self._teacher = value
+        self._teacher.id = value

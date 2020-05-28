@@ -5,8 +5,8 @@ from rest_framework.response import Response
 class MainSerializer(serializers.ModelSerializer):
     class Meta:
         model = MainModel
-        fields = '__all__'
+        fields = ['name',  'code', 'subject', 'sclass',]
 
 class MainViewSet(viewsets.ModelViewSet):
-    queryset = MainModel.objects.order_by('-id')[:1]
+    queryset = MainModel.objects.order_by('-id')
     serializer_class = MainSerializer

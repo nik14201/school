@@ -48,11 +48,11 @@ class MainModel(models.Model):
 
     @property
     def letter(self):
-        return self._letter
+        return self._letter._name
 
     @letter.setter
     def letter(self, value):
-        self._letter = value
+        self._letter._name = value
 
     @property
     def datecreate(self):
@@ -64,11 +64,11 @@ class MainModel(models.Model):
 
     @property
     def school(self):
-        return self._school
+        return self._school.id
 
     @school.setter
     def school(self, value):
-        self._school = value
+        self._school.id = value
 
     @property
     def active(self):

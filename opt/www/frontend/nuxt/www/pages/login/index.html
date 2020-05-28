@@ -4,22 +4,20 @@
             <div class="col-md-6">
                 <div class="main-card mb-3 card">
                     <div class="card-body"><h5 class="card-title">Войти в систему</h5>
-                        
+
                             <div class="position-relative form-group">
                             	<label for="exampleEmail" class="">Email</label>
                             <input name="email" v-model="email"  id="exampleEmail" placeholder="with a placeholder" type="email" class="form-control">
                             </div>
                             <div class="position-relative form-group"><label for="examplePassword"
                                                                              class="">Password</label>
-                            <input v-model="password" 
+                            <input v-model="password"
                                 name="password" id="examplePassword" placeholder="password placeholder" type="password"
                                 class="form-control"></div>
                             <button v-on:click="loginUser" class="mt-1 btn btn-primary">Войти</button>
                             <button v-on:click="gotoRegistrations" class="mt-1 btn btn-primary">Зарегистрироваться</button>
                     </div>
-                    
-                    
-              
+
                 </div>
             </div>
         </div>

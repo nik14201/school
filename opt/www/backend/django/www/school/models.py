@@ -56,10 +56,12 @@ class MainModel(models.Model):
     def code(self, value):
         self._code = value
 
-    @property
-    def country(self):
-        return self._country
 
-    @country.setter
-    def country(self, value):
-        self._country = value
+
+    @property
+    def city(self):
+        return self._city.name
+
+    @city.setter
+    def city(self, value):
+        self._city = value

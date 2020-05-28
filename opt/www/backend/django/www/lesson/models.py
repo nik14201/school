@@ -64,16 +64,16 @@ class MainModel(models.Model):
 
     @property
     def subject(self):
-        return self._subject
+        return self._subject.name
 
     @subject.setter
     def subject(self, value):
-        self._subject = value
+        self._subject.name = value
 
     @property
     def sclass(self):
-        return self._sclass
+        return self._sclass.id
 
     @sclass.setter
     def sclass(self, value):
-        self._sclass = value
+        self._sclass.id = value

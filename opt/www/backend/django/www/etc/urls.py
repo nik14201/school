@@ -18,11 +18,21 @@ from django.urls import path, include
 from django.conf.urls import include, url
 
 urlpatterns = [
-    path('api/v2/admin/', admin.site.urls),
-    path('api/v1/auth/', include('apiusers.urls')),
-    path('api/v1/weather/', include('weather.urls')),
-    path('api/v1/youtube/', include('youtube.urls')),
-    path('api/v1/city/', include('city.urls')),
+    path('api/v2/admin/',       admin.site.urls),
+    path('api/v1/auth/',        include('apiusers.urls')),
+    path('api/v1/weather/',     include('weather.urls')),
+    path('api/v1/youtube/',     include('youtube.urls')),
+    path('api/v1/city/',        include('city.urls')),
+
+
+    path('api/v1/country/',     include('country.urls')),
+    path('api/v1/city/',        include('city.urls')),
+    path('api/v1/school/',      include('school.urls')),
+    path('api/v1/diary/',       include('diary.urls')),
+    path('api/v1/homework/',    include('homework.urls')),
+    path('api/v1/sclass/',      include('sclass.urls')),
+    path('api/v1/subject/',     include('subject.urls')),
+    path('api/v1/lesson/',      include('lesson.urls')),
 ]
 
 
