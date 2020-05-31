@@ -1,6 +1,6 @@
 from rest_framework import  serializers, viewsets
 from .models import  MainModel
-from rest_framework.response import Response
+
 
 class MainSerializer(serializers.ModelSerializer):
     class Meta:

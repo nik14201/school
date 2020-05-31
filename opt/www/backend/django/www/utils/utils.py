@@ -8,6 +8,9 @@ from teacher.serializers import TokenSerializer as TokenTeacherSerializer
 from student.serializers import TokenSerializer as TokenStudentSerializer
 from profiles.serializers import TokenSerializer as TokenProfileSerializer
 
+from noauth.models import User as Noauth, Token as TokenNoAuth
+from noauth.serializers import TokenSerializer as TokenNoauthSerializer
+
 def get_token_model(user):
     if isinstance(user, Parent):
         return TokenParent
@@ -17,6 +20,9 @@ def get_token_model(user):
         return TokenStudent
     elif isinstance(user, Profile):
         return TokenProfile
+    elif isinstance(user,Noauth):
+        return TokenNoAuth
+
 
 def get_token_serializers(user):
     if isinstance(user, Parent):
@@ -27,6 +33,8 @@ def get_token_serializers(user):
         return TokenStudentSerializer
     elif isinstance(user, Profile):
         return TokenProfileSerializer
+    elif isinstance(user, Noauth):
+        return TokenNoauthSerializer
 
 
 def get_token_model_auth(User):
@@ -43,6 +51,9 @@ def get_token_model_auth(User):
     elif isinstance(user, Parent):
         del user
         return TokenParent
+    elif isinstance(user, Noauth):
+        del user
+        return TokenNoAuth
     else:
         del user
         return None
