@@ -4,7 +4,7 @@ import Youtube from '~/components/youtube/index.vue'
 import Menus from '~/components/menu/index.vue'
 export default {
   head: {
-    title: 'School',
+    title: 'nvkot',
   meta: [
     { charset: 'utf-8' },
     { name: 'viewport', content: 'Web - разработчик  - Django  - python - docker - golang - купить сайт - разработка на django - создать сайт - web разработчик' },
@@ -39,7 +39,7 @@ export default {
   methods: {
 
     getUser(){
-      
+
     }
 
     }

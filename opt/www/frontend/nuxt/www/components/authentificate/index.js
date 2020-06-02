@@ -5,7 +5,7 @@ export default {
   },
   name: 'app',
   data () {
-    return { 
+    return {
       data: 'default',
       login:false,
 
@@ -13,7 +13,7 @@ export default {
   },
 
   created() {
-        //this.getData();
+        this.getData();
 
   },
 
@@ -49,11 +49,11 @@ export default {
           this.login = response.authentificate;
         });
         console.log('222', this.login);
-        
+
     },
 
 
-     
-   
+
+
   }
 }

@@ -8,33 +8,36 @@ export default {
   },
   name: 'app',
   data () {
-    return { info: 'default' }
+    return {
+    info: 'default',
+    auth: false,
+    key: 0,
+    }
   },
 
   created() {
-    //this.getInfo();
+    this.key = this.getToken();
   },
 
   mounted() {
-
+  this.key = this.getToken();
   },
 
   methods: {
-
-    // async getInfo() {
-    //   await this.$axios
-    //     .$get('/api/v2/menu')
-    //     .then(response => {
-    //       this.info = response;
-    //       console.log(response);
-    //     });
-    // },
+    getToken() {
+      var key = this.$store.getters['store/GET_KEY'];
+      if (!key) {
+        key = this.$cookies.get('token');
+      }
+      return key;
+    },
 
     async logoutUser() {
       await this.$axios.$get('/api/v1/auth/logout/');
       this.$store.dispatch('store/SET_KEY', 0);
       this.$cookies.set('token', 0, {path:window.location.hostname});
-      this.$router.replace({ path: '/login/' });
+      this.$router.replace({ path: '/' });
+      this.auth=false;
     },
 
 

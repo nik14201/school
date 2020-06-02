@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'student',
     'parent',
     'profiles',
+    'noauth',
 
     'country',
     'city',

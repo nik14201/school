@@ -25,19 +25,16 @@ export default {
     },
 
     async getInfos() {
-      var key =  this.getToken();
-      const headers = {'Authorization': `Token ${key}`}
       await this.$axios
-        .$get('/api/v1/youtube/', { headers: headers })
+        .$get('/api/v1/youtube/')
         .then(response => {
           this.info = response;
-          console.log(response);
         });
     },
 
 
-     
-   
+
+
   }
 }
 
