@@ -10,32 +10,6 @@
       <li>Skype: {{data.skype}}</li>
       <li><a target="_blank" :href=data.url_facebook>Facebook</a> </li>
       <li><a target="_blank" :href=data.url_vk>VK</a></li>
-      <li class="telegram">
-        <script type="text/javascript">
-        (function() {
-          var script = document.createElement("script");
-          script.type = "text/javascript";
-          script.async = true;
-          script.: src = "//telegram.im/widget-button/index.php?id=data.telegram";
-          document.getElementsByTagName("head")[0].appendChild(script);
-        })();
-
-        </script>
-        <a :href=data.url_telegram target="_blank" class="telegramim_button telegramim_shadow telegramim_pulse" style="font-size:12px;width:109px; background:#27A5E7;box-shadow:1px 1px 1px #27A5E7;color:#FFFFFF;border-radius:1px;" title=""><i></i> Telegram</a>
-      </li>
-      <li>
-        <script type="text/javascript">
-        (function() {
-          var script = document.createElement("script");
-          script.type = "text/javascript";
-          script.async = true;
-          script.: src = "//telegram.im/widget-button/index.php?id=data.telegram";
-          document.getElementsByTagName("head")[0].appendChild(script);
-        })();
-
-        </script>
-        <a href="https://telegram.im/@nvkot_bot" target="_blank" class="telegramim_button telegramim_shadow telegramim_pulse" style="font-size:12px;width:109px; background:#27A5E7;box-shadow:1px 1px 1px #27A5E7;color:#FFFFFF;border-radius:1px;" title=""><i></i>Telegram bot</a>
-      </li>
     </ul>
     <button v-on:click="toEdit" class="mt-1 btn btn-primary">Редактировать профиль</button>
 </div>

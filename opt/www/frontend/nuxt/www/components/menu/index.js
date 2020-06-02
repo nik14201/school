@@ -36,7 +36,8 @@ export default {
       await this.$axios.$get('/api/v1/auth/logout/');
       this.$store.dispatch('store/SET_KEY', 0);
       this.$cookies.set('token', 0, {path:window.location.hostname});
-      this.$router.replace({ path: '/' });
+      //this.$router.replace({ path: '/' });
+      document.location.href = '/';
       this.auth=false;
     },
 
