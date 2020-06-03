@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="row main-form justify-content-center">
+    <div class="col-md-6">
+      <div class="main-card mb-3 card">
+        <div class="card-body">
+          <h5 class="card-title">Редактировать профиль пользователя</h5>
+          <form id="avatar" method="post">
+            <div class="profile col-lg-2">
+              <img class="profile_img" v-bind:src="data.avatar">
+            </div>
+            <input v-on:change="handleFileUpload()" name='avatar' id='avatar' type="file" ref='file' class="mt-1 btn btn-primary">
+          </form>
+          <form id="profile" method="post">
+            <div class="position-relative form-group">
+              <label for="last_name" class="">Фамилия:</label>
+              <input v-model="data.last_name" name="last_name" id="last_name" placeholder="Фамилия" type="text" class="form-control">
+            </div>
+            <div class="position-relative form-group">
+              <label for="first_name" class="">Имя:</label>
+              <input v-model="data.first_name" name="first_name" id="first_name" placeholder="Имя" type="text" class="form-control">
+            </div>
+            <div class="position-relative form-group">
+              <label for="patronymic" class="">Отчество:</label>
+              <input v-model="data.patronymic" name="patronymic" id="patronymic" placeholder="Отчество" type="text" class="form-control">
+            </div>
+            <div class="position-relative form-group">
+              <label for="phone" class="">Телефон:</label>
+              <input v-model="data.phone" name="phone" id="phone" placeholder="phone number" type="text" class="form-control">
+            </div>
+            <div class="position-relative form-group">
+              <label for="email" class="">Email:</label>
+              <input v-model="data.email" name="email" id="email" placeholder="Email" type="email" class="form-control">
+            </div>
+            <div class="position-relative form-group">
+              <label for="skype" class="">Skype:</label>
+              <input v-model="data.skype" name="skype" id="skype" placeholder="Skype" type="text" class="form-control">
+            </div>
+            <div class="position-relative form-group">
+              <label for="facebook" class="">Facebook:</label>
+              <input v-model="data.url_facebook" name="facebook" id="facebook" placeholder="Facebook" type="text" class="form-control">
+            </div>
+            <div class="position-relative form-group">
+              <label for="vk" class="">VK:</label>
+              <input v-model="data.url_vk" name="vk" id="vk" placeholder="vk" type="text" class="form-control">
+            </div>
+          </form>
+          <button v-on:click="saveProfile" class="mt-1 btn btn-primary">Сохранить</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

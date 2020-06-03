@@ -1,6 +1,11 @@
-<h1>WeelLeek-framework (Full Stack)</h1>
-<h2>Author: Kot Nikolay Valerievich</h2><br>
-<h3>Email: wildleek.ru@yandex.ru, nik14201@yandex.ru, nvkot.ru@yandex.ru</h3><br>
-<h3>telegram:@nik14201<h3><br>
-<h4>site: https://wildleek.ru, https://nvkot.ru</h4><br>
+# [OpenSchool](https://nvkot.ru/) &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/facebook/react/blob/master/LICENSE)
 
+OpenSchool is a WildLeek framework for building user interfaces.
+
+## Installation
+ * apt install docker.io docker-compose
+ * cd opt/www/docker && ./build.sh
+
+### License
+
+React is [MIT licensed](./LICENSE).
