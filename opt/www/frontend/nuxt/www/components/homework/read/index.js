@@ -4,8 +4,13 @@ export default {
   name: 'app',
   data() {
     return {
+      hw: this.$router.currentRoute.params['hw'],
+      data: {
+      name: '',
+      text: '',
+      lesson: '',
 
-    data: 'default'
+      }
     }
   },
 
@@ -14,6 +19,7 @@ export default {
   },
 
   mounted() {
+
   },
 
   methods: {
@@ -30,17 +36,13 @@ export default {
       var key = this.getToken();
       const headers = { 'Authorization': `Token ${key}` }
       await this.$axios
-        .$get('api/v1/homework/', { headers: headers })
+        .$get('/api/v1/homework/'+this.hw, { headers: headers })
         .then(response => {
-          this.data = response;
+          this.data = response[0];
         });
     },
 
 
-
-    toEdit() {
-      this.$router.replace({ path: '/homework/edit/' });
-    }
 
 
   }

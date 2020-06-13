@@ -19,7 +19,7 @@
     "@nuxtjs/yandex-metrika": "^1.0.3",
     "bootstrap-vue": "^2.13.0",
     "cookie-universal-nuxt": "^2.1.3",
-    "nuxt": "^2.11.0",
+    "nuxt": "^2.12.2",
     "nuxt-edge": "latest",
     "nuxt-sass-resources-loader": "^2.0.5",
     "nuxt-vuex-localstorage": "^1.2.6",
@@ -28,6 +28,7 @@
     "vue-csrf": "^2.0.4",
     "vue-fontawesome": "0.0.2",
     "vue-perfect-scrollbar": "^0.2.1",
+    "vue-router": "^3.3.4",
     "vue-yandex-metrika": "^1.8.3",
     "vuex": "^3.3.0"
   },

@@ -1,6 +1,7 @@
 <div class="homework">
   <div v-for="d in data">
-      Параграф: {{d.name}}<br>
+    <a :href="'read/'+d.id">
+      Параграф: {{d.name}}</a><br>
       Название: {{d.lesson}}
       <hr>
   </div>

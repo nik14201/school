@@ -17,13 +17,18 @@ class MainModel(models.Model):
         null=True,
         blank=True
     )
-    _name = models.CharField(
+    name = models.CharField(
         verbose_name="Name",
         max_length=512,
         null=True,
         blank=True
     )
-    _code = models.CharField(
+    text = models.TextField(
+        verbose_name = "Описание",
+        null=True,
+        blank=True
+    )
+    code = models.CharField(
         verbose_name="Code",
         max_length=256,
         null=True,
@@ -31,7 +36,7 @@ class MainModel(models.Model):
     )
 
     def __str__(self):
-        return "%s  %s" % (self._name, self._code)
+        return "%s  %s" % (self.name, self.code)
 
     class Meta:
         verbose_name = verbose_name
@@ -39,21 +44,21 @@ class MainModel(models.Model):
         db_table = db_table
         app_label = app_label
 
-    @property
-    def name(self):
-        return self._name
-
-    @name.setter
-    def name(self, value):
-        self._name = value
-
-    @property
-    def code(self):
-        return self._code
-
-    @code.setter
-    def code(self, value):
-        self._code = value
+    # @property
+    # def name(self):
+    #     return self._name
+    #
+    # @name.setter
+    # def name(self, value):
+    #     self._name = value
+    #
+    # @property
+    # def code(self):
+    #     return self._code
+    #
+    # @code.setter
+    # def code(self, value):
+    #     self._code = value
 
     @property
     def lesson(self):

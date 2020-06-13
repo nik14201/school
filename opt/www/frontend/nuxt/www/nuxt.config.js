@@ -15,6 +15,43 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
+
+
+  router: {
+    extendRoutes (routes, resolve) {
+      routes.push(
+      {
+        path: '/homework/read/:hw/',
+        components: {
+          default: resolve(__dirname, 'pages/homework/read/index.vue'), // or routes[index].component
+        },
+        chunkNames: {
+          //modal: 'components/modal'
+        }
+      },
+
+     {
+        path: '/homework/',
+        components: {
+          default: resolve(__dirname, 'pages/homework/index.vue'), // or routes[index].component
+        },
+        chunkNames: {
+          //modal: 'components/modal'
+        }
+      },
+      )
+
+    }
+  },
+
+
+
+
+
+
+
+
+
   /*
   ** Customize the progress-bar color
   */
@@ -58,7 +95,7 @@ export default {
       }
   ],
   ],
- 
+
 axios: {
     proxy: true
   },

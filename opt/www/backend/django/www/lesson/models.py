@@ -30,6 +30,27 @@ class MainModel(models.Model):
         null=True,
         blank=True
     )
+    text = models.TextField(
+        verbose_name = "Описание",
+        null=True,
+        blank=True
+    )
+    video_src = models.URLField(
+        verbose_name = "video url",
+        max_length = 500,
+        null=True,
+        blank=True
+    )
+    width = models.IntegerField(
+        default=560,
+        db_column = 'video_width',
+        verbose_name="width"
+    )
+    height = models.IntegerField(
+        default=315,
+        db_column = 'video_height',
+        verbose_name="width"
+    )
     _code = models.CharField(
         verbose_name="Code",
         max_length=256,
