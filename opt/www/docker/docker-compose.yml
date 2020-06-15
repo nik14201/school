@@ -86,20 +86,20 @@ services:
 #        ipv4_address: ${NETWORK_IP}.11
 #    restart: always
 
-  pgadmin_school:
-    depends_on:
-      - postgres_school
-    container_name: ${NAME_APP}_pgadmin
-    image: dpage/pgadmin4
-    ports:
-      - "5556:80"
-    environment:
-      PGADMIN_DEFAULT_EMAIL: admin
-      PGADMIN_DEFAULT_PASSWORD: admin111123!@#
-    restart: always
-    networks:
-      net_school:
-        ipv4_address: ${NETWORK_IP}.12
+#  pgadmin_school:
+#    depends_on:
+#      - postgres_school
+#    container_name: ${NAME_APP}_pgadmin
+#    image: dpage/pgadmin4
+#    ports:
+#      - "5557:80"
+#    environment:
+#      PGADMIN_DEFAULT_EMAIL: admin
+#      PGADMIN_DEFAULT_PASSWORD: admin111123!@#
+#    restart: always
+#    networks:
+#      net_school:
+#        ipv4_address: ${NETWORK_IP}.12
 
 #  nuxt_school:
 #    depends_on:
