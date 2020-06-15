@@ -115,7 +115,7 @@ DATABASES = {
         'NAME': 'school',
         'USER' : 'school',
         'PASSWORD': 'school123!@#',
-        'HOST' : '172.25.0.15',
+        'HOST' : '172.27.0.15',
         'PORT' : '5432',
     }
 }

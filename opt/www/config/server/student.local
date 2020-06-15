@@ -1,5 +1,7 @@
 server {
 server_name student.teacherdom.ru;
+ssl_certificate      /etc/letsencrypt/live/student.teacherdom.ru/fullchain.pem
+ssl_certificate_key /etc/letsencrypt/live/student.teacherdom.ru/privkey.pem
 set $django_host http://172.27.0.6:8080;
 include /home/openschool/www/opt/www/config/local/settings.conf;
 }
