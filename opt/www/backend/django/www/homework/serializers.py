@@ -6,6 +6,12 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.parsers import MultiPartParser
 from rest_framework.views import APIView
 
+from parent.models import User as Parent
+from teacher.models import User as Teacher
+from student.models import User as Student
+from profiles.models import User as Profile
+
+
 class MainSerializer(serializers.ModelSerializer):
     class Meta:
         model = MainModel
@@ -16,6 +22,17 @@ class MainViewSet(APIView):
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
     parser_classes = [MultiPartParser,]
+
+    def get_object(self, user):
+        if isinstance(user, Parent):
+            queryset = []
+        elif isinstance(user, Teacher):
+            queryset = MainModel.objects.order_by('-id').filter(_lesson___subject___teacher=user)
+        elif isinstance(user, Student):
+            queryset = MainModel.objects.order_by('-id').filter(_lesson___sclass=user._sclass)
+        elif isinstance(user, Profile):
+            queryset = []
+        return queryset
 
     def patch(self, request,  *args, **kwargs):
         if request.user.is_authenticated:
@@ -37,7 +54,7 @@ class MainViewSet(APIView):
 
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
-            queryset = MainModel.objects.order_by('-id').filter(_lesson___sclass=request.user._sclass)
+            queryset = self.get_object(request.user)
             serializers = [MainSerializer(q).data for q in queryset]
             return Response(serializers)
         else:
@@ -48,6 +65,17 @@ class MainViewSetEdit(MainViewSet):
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
     parser_classes = [MultiPartParser, ]
+
+    def get_object(self, user, pk):
+        if isinstance(user, Parent):
+            queryset = []
+        elif isinstance(user, Teacher):
+            queryset = MainModel.objects.order_by('-id').filter(_lesson___subject___teacher=user, id=pk)
+        elif isinstance(user, Student):
+            queryset = MainModel.objects.order_by('-id').filter(_lesson___sclass=user._sclass, id=pk)
+        elif isinstance(user, Profile):
+            queryset = []
+        return queryset
 
     def patch(self, request, pk,  *args, **kwargs):
         print("Homework Edit")
@@ -64,7 +92,7 @@ class MainViewSetEdit(MainViewSet):
 
     def get(self, request, pk, *args, **kwargs):
         if request.user.is_authenticated:
-            queryset = MainModel.objects.order_by('-id').filter(_lesson___sclass=request.user._sclass, id=pk)
+            queryset = self.get_object(request.user, pk)
             serializers = [MainSerializer(q).data for q in queryset]
             return Response(serializers)
         else:

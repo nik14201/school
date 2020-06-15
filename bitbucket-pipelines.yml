@@ -1,0 +1,10 @@
+pipelines: 
+    default: 
+        - step: 
+            script:  
+              - pipe: atlassian/ssh-run:0.2.4
+                variables:
+                  SSH_USER: 'openschool'
+                  SERVER: '144.91.115.214'
+                  MODE: 'command'
+                  COMMAND: '/home/openschool/www/deploy.sh'

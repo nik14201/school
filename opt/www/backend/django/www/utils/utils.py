@@ -11,6 +11,8 @@ from profiles.serializers import TokenSerializer as TokenProfileSerializer
 from noauth.models import User as Noauth, Token as TokenNoAuth
 from noauth.serializers import TokenSerializer as TokenNoauthSerializer
 
+
+
 def get_token_model(user):
     if isinstance(user, Parent):
         return TokenParent

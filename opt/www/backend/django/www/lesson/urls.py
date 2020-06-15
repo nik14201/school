@@ -1,11 +1,7 @@
-from django.conf.urls import url, include
-from .serializers import MainViewSet
-from rest_framework import routers
-router = routers.DefaultRouter()
-router.register(r'', MainViewSet)
-
+from .serializers import MainViewSet, MainViewSetEdit
+from django.urls import path
 
 urlpatterns = [
-    url(r'^', include(router.urls)),
-
+    path('', MainViewSet.as_view(), name='lesson'),
+    path('<str:pk>', MainViewSetEdit.as_view(), name='lesson'),
 ]
