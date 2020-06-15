@@ -1,5 +1,5 @@
 server {
 server_name nvkot.local;
-set $django_host http://172.25.0.6:8080;
+set $django_host http://172.26.0.6:8080;
 include /home/us/www/nvkot/nvkot/opt/www/config/local/settings.conf;
 }
