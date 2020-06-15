@@ -1,5 +1,5 @@
 server {
-server_name admin.school.local;
+server_name admin.teacherdom.ru;
 set $django_host http://172.25.0.8:8080;
-include /home/us/www/school/school/opt/www/config/local/settings.conf;
+include /home/openschool/www/opt/www/config/local/settings.conf;
 }
