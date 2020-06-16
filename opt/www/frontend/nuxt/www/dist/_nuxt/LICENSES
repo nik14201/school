@@ -1,33 +1,18 @@
 /*!
-  * vue-router v3.1.6
-  * (c) 2020 Evan You
-  * @license MIT
-  */
-
-/*!
- * BootstrapVue Icons, generated from Bootstrap Icons 1.0.0-alpha3
- *
- * @link https://icons.getbootstrap.com/
- * @license MIT
- * https://github.com/twbs/icons/blob/master/LICENSE.md
- */
-
-/*!
  * Vue.js v2.6.11
  * (c) 2014-2019 Evan You
  * Released under the MIT License.
  */
 
 /*!
- * cookie
- * Copyright(c) 2012-2014 Roman Shtylman
- * Copyright(c) 2015 Douglas Christopher Wilson
- * MIT Licensed
- */
+  * vue-router v3.3.4
+  * (c) 2020 Evan You
+  * @license MIT
+  */
 
-/*!
- * perfect-scrollbar v1.4.0
- * (c) 2018 Hyunje Jun
+/**
+ * vuex v3.3.0
+ * (c) 2020 Evan You
  * @license MIT
  */
 
@@ -38,9 +23,18 @@
  */
 
 /*!
- * vue-no-ssr v1.1.1
- * (c) 2018-present egoist <0x142857@gmail.com>
- * Released under the MIT License.
+ * BootstrapVue Icons, generated from Bootstrap Icons 1.0.0-alpha3
+ *
+ * @link https://icons.getbootstrap.com/
+ * @license MIT
+ * https://github.com/twbs/icons/blob/master/LICENSE.md
+ */
+
+/*!
+ * cookie
+ * Copyright(c) 2012-2014 Roman Shtylman
+ * Copyright(c) 2015 Douglas Christopher Wilson
+ * MIT Licensed
  */
 
 /*! 
@@ -54,10 +48,10 @@
   * 
  */
 
-/**
- * vuex v3.3.0
- * (c) 2020 Evan You
- * @license MIT
+/*!
+ * vue-no-ssr v1.1.1
+ * (c) 2018-present egoist <0x142857@gmail.com>
+ * Released under the MIT License.
  */
 
 /**!
