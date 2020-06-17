@@ -10,5 +10,5 @@ location /api/v2/admin/ {
         proxy_set_header        X-Forwarded-Proto $scheme;
         proxy_pass $django_host;
   }
-include /home/openschool/www/opt/www/config/local/settings.conf;
+include /home/openschool/www/opt/www/config/server/settings.conf;
 }
