@@ -3,5 +3,12 @@ server_name admin.teacherdom.ru;
 ssl_certificate     /etc/letsencrypt/live/admin.teacherdom.ru/fullchain.pem;
 ssl_certificate_key /etc/letsencrypt/live/admin.teacherdom.ru/privkey.pem;
 set $django_host http://172.27.0.8:8080;
+location /api/v2/admin/ {
+        proxy_set_header        Host $host;
+        proxy_set_header        X-Real-IP $remote_addr;
+        proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header        X-Forwarded-Proto $scheme;
+        proxy_pass $django_host;
+  }
 include /home/openschool/www/opt/www/config/local/settings.conf;
 }
