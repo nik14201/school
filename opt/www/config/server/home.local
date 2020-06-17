@@ -1,5 +1,5 @@
 server {
-server_name nvkot.ru;
+server_name teacherdom.ru;
 set $django_host http://172.27.0.8:8080;
 ssl_certificate     /etc/letsencrypt/live/teacherdom.ru/fullchain.pem;
 ssl_certificate_key /etc/letsencrypt/live/teacherdom.ru/privkey.pem;
