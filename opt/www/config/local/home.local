@@ -1,5 +1,5 @@
 server {
 server_name school.local;
 set $django_host http://172.27.0.6:8080;
-include /home/us/www/nvkot/nvkot/opt/www/config/local/settings.conf;
+include /home/us/www/school/school/opt/www/config/local/settings.conf;
 }
