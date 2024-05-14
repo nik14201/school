@@ -8,7 +8,7 @@ OpenSchool is [MIT licensed](./LICENSE).
 
 <h2>Author: Kot Nikolay Valerievich</h2><br>
 <h3>Email: nik14201@yandex.ru, nvkot.ru@yandex.ru</h3><br>
-<h3>telegram:@nik14201<h3><br>
+<h3>telegram:@isemenov2018<h3><br>
 <h4>site: https://nvkot.ru, https://school.ru</h4><br>
 
 ##Описание проекта  
